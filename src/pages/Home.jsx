@@ -4,7 +4,6 @@ import React from 'react'
 
 const Home = () => {
 
-  const {user,isSignedIn}=useUser()
   return (
     <div>
       <Header/>
