@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import SignInPage from './auth/signin/SignIn.jsx'
 import Home from './pages/Home'
+import Dashboard from './pages/Dashboard'
 
 const router=createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router=createBrowserRouter([
       {
         path:'/',
         element:<Home/>
+      },
+      {
+        path:'/dashboard',
+        element:<Dashboard/>
       }
     ]
   }
