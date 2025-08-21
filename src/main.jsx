@@ -4,7 +4,7 @@ import './index.css'
 import App from './App.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
- import { ClerkProvider } from '@clerk/clerk-react'
+import { ClerkProvider } from '@clerk/clerk-react'
 
 import SignInPage from './auth/signin/SignIn.jsx'
 import Home from './pages/Home'
@@ -16,38 +16,37 @@ if (!PUBLISHABLE_KEY) {
   throw new Error("Missing Clerk Publisable Key")
 }
 
-const router=createBrowserRouter([
+const router = createBrowserRouter([
   {
-    element:<App/>,
-    children:[
+    element: <App />,
+    children: [
       {
-        path:'/',
-        element:<Home/>
-      },
-      {
-        path:'/dashboard',
-        element:<Dashboard/>
+        path: '/dashboard',
+        element: <Dashboard />
       }
     ]
   }
   ,
-
   {
-    path:'/auth/sign-in',
-    element:<SignInPage/>
+    path: '/',
+    element: <Home />
   },
-  
+  {
+    path: '/auth/sign-in',
+    element: <SignInPage />
+  },
+
 ])
 
 createRoot(document.getElementById('root')).render(
 
 
   <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
-    <RouterProvider router={router}/>
+    <RouterProvider router={router} />
 
   </ClerkProvider>
 
- 
- 
- 
+
+
+
 )
