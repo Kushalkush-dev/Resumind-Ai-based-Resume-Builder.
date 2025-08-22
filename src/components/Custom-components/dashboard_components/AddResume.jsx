@@ -10,9 +10,19 @@ import {
 } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Button } from '@/components/ui/button'
+import { v4 as uuidv4 } from 'uuid';
 
 const AddResume = () => {
   const [openDialog, setopenDialog] = useState(false)
+  const [title, settitle] = useState()
+
+
+  const onCreate=()=>{
+   const id=uuidv4();
+  console.log(id,title);
+  
+
+  }
 
   return (
     <div >
@@ -28,13 +38,15 @@ const AddResume = () => {
       <DialogHeader>
         <DialogTitle>Create New Resume</DialogTitle>
         <DialogDescription>
-          <p>Add the title for your resume</p>
-          <Input type="text" placeHolder="Ex:Product Manager" className="my-2"/>
+          Add the title for your resume
+          <Input onChange={(e)=>settitle(e.target.value)} type="text" placeholder="Ex:Product Manager" className="my-2"/>
         </DialogDescription>
         
         <div className='flex items-center justify-end gap-2'>
           <Button onClick={()=>setopenDialog(false)} variant="ghost">Cancel</Button>
-          <Button >Create</Button>
+          <Button disabled={!title} onClick={()=>{
+            onCreate()
+          }}>Create</Button>
         </div>
       </DialogHeader>
     </DialogContent>
