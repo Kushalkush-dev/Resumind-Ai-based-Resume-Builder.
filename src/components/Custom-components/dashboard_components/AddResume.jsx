@@ -24,7 +24,6 @@ const AddResume = () => {
   setisloading(true)
    const id=uuidv4();
    const data={
-    
       title:resumeTitle,
       resumeId:id,
       userEmail:user?.primaryEmailAddress?.emailAddress,
@@ -36,6 +35,7 @@ const AddResume = () => {
    const res= await globalApi.createNewResume(data)
    console.log(res);
    setisloading(false)
+   setopenDialog(false)
   
    } catch (error) {
     console.log(error);
