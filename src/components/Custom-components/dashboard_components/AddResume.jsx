@@ -1,4 +1,4 @@
-import { PlusCircle } from 'lucide-react'
+import { Loader2, PlusCircle } from 'lucide-react'
 import React, { useState } from 'react'
 import {
   Dialog,
@@ -17,11 +17,11 @@ import { useUser } from '@clerk/clerk-react'
 const AddResume = () => {
   const [openDialog, setopenDialog] = useState(false)
   const [resumeTitle, setresumeTitle] = useState()
-  const [loading, setloading] = useState(false)
+  const [isloading, setisloading] = useState(false)
   const {user}=useUser()
 
   const onCreate=()=>{
-    setloading(true)
+  setloading(true)
    const id=uuidv4();
    const data={
     data:{
@@ -32,9 +32,14 @@ const AddResume = () => {
       
     }
    }
-    globalApi.createNewResume(data).then(res=>console.log(res)).catch(err=>console.log(err)
+    globalApi.createNewResume(data).then(res=>{
+      setisloading(false)
+      console.log(res)})
+      .catch(err=>{
+        setisloading(false)
+        console.log(err)}
     )
-    setloading(false)
+   
 
   }
 
@@ -58,9 +63,10 @@ const AddResume = () => {
         
         <div className='flex items-center justify-end gap-2'>
           <Button onClick={()=>setopenDialog(false)} variant="ghost">Cancel</Button>
-          <Button disabled={!resumeTitle} onClick={()=>{
+          <Button disabled={!resumeTitle||isloading} onClick={()=>{
             onCreate()
-          }}>Create</Button>
+          }}>
+            {isloading?<Loader2 className='animate-spin'/>:"Create"}</Button>
         </div>
       </DialogHeader>
     </DialogContent>

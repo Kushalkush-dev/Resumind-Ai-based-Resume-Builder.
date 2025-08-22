@@ -1,8 +1,8 @@
-const { Axios } = require("axios");
-const { data } = require("react-router-dom");
+import axios from 'axios';
+
 
 const API_KEY=import.meta.env.VITE_STRAPI_API_KEY
-const axiosClient=Axios.create({
+const axiosClient=axios.create({
   baseUrL:"http://http://localhost:1337/api/",
   headers:{
    'Content-Type': "application/json",
