@@ -11,16 +11,30 @@ import {
 import { Input } from "@/components/ui/input"
 import { Button } from '@/components/ui/button'
 import { v4 as uuidv4 } from 'uuid';
+import globalApi from './../../../../service/globalApi'
+import { useUser } from '@clerk/clerk-react'
 
 const AddResume = () => {
   const [openDialog, setopenDialog] = useState(false)
-  const [title, settitle] = useState()
-
+  const [resumeTitle, setresumeTitle] = useState()
+  const [loading, setloading] = useState(false)
+  const {user}=useUser()
 
   const onCreate=()=>{
+    setloading(true)
    const id=uuidv4();
-  console.log(id,title);
-  
+   const data={
+    data:{
+      title:resumeTitle,
+      resumeId:id,
+      userEmail:user?.primaryEmailAddress?.emailAddress,
+      userName:user?.fullName
+      
+    }
+   }
+    globalApi.createNewResume(data).then(res=>console.log(res)).catch(err=>console.log(err)
+    )
+    setloading(false)
 
   }
 
@@ -39,12 +53,12 @@ const AddResume = () => {
         <DialogTitle>Create New Resume</DialogTitle>
         <DialogDescription>
           Add the title for your resume
-          <Input onChange={(e)=>settitle(e.target.value)} type="text" placeholder="Ex:Product Manager" className="my-2"/>
+          <Input onChange={(e)=>setresumeTitle(e.target.value)} type="text" placeholder="Ex:Product Manager" className="my-2"/>
         </DialogDescription>
         
         <div className='flex items-center justify-end gap-2'>
           <Button onClick={()=>setopenDialog(false)} variant="ghost">Cancel</Button>
-          <Button disabled={!title} onClick={()=>{
+          <Button disabled={!resumeTitle} onClick={()=>{
             onCreate()
           }}>Create</Button>
         </div>
