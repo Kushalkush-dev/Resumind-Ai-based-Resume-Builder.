@@ -20,25 +20,29 @@ const AddResume = () => {
   const [isloading, setisloading] = useState(false)
   const {user}=useUser()
 
-  const onCreate=()=>{
-  setloading(true)
+  const onCreate=async()=>{
+  setisloading(true)
    const id=uuidv4();
    const data={
-    data:{
+    
       title:resumeTitle,
       resumeId:id,
       userEmail:user?.primaryEmailAddress?.emailAddress,
       userName:user?.fullName
       
-    }
+    
    }
-    globalApi.createNewResume(data).then(res=>{
-      setisloading(false)
-      console.log(res)})
-      .catch(err=>{
-        setisloading(false)
-        console.log(err)}
-    )
+   try {
+   const res= await globalApi.createNewResume(data)
+   console.log(res);
+   setisloading(false)
+  
+   } catch (error) {
+    console.log(error);
+    setisloading(false)
+    
+   }
+   
    
 
   }

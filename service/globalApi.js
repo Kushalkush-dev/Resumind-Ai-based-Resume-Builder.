@@ -3,16 +3,23 @@ import axios from 'axios';
 
 const API_KEY=import.meta.env.VITE_STRAPI_API_KEY
 const axiosClient=axios.create({
-  baseUrL:"http://http://localhost:1337/api/",
+  baseURL:"http://localhost:1337/api/",
   headers:{
-   'Content-Type': "application/json",
-   'Authorization': `Bearer ${API_KEY}`
+   'Content-Type':"application/json",
+   'Authorization':`Bearer ${API_KEY}`
   }
 
 })
 
-const createNewResume=(data)=>{
-  axiosClient.post("/user-resumes",data)
+const createNewResume= async (data)=>{
+  try {
+    const response=await axiosClient.post("/user-resumes",{data})
+    return response.data
+  } catch (error) {
+    console.error("Error creating resume:");
+    throw error; 
+  }
+  
 }
 
 export default {
