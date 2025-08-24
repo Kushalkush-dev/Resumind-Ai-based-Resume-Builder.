@@ -1,4 +1,3 @@
-import Header from '@/components/Custom-components/Header'
 import React from 'react'
 
 const ResumeEdit = () => {

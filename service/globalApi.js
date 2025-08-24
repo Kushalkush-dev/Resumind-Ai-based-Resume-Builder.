@@ -25,11 +25,12 @@ const createNewResume= async (data)=>{
 
 const getResumes=async (email)=>{
   try {
-    const response=await axiosClient.get(`/user-resumes?filters[email][$eq]=${email}`)
+    if(!email)throw new Error("email is Required") 
+    const response=await axiosClient.get(`/user-resumes?filters[userEmail][$eq]=${encodeURIComponent(email)}`)
     const data=response.data
     return data
   } catch (error) {
-    console.log("Error fetching resumes");
+    console.error("Error fetching resumes:",error);
     throw error;
     
   }
