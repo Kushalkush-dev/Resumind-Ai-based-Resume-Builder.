@@ -8,8 +8,8 @@ const Header = () => {
   return (
     <>
     <div className='flex w-full justify-center items-center'>
-    <div className='flex justify-between p-2 shadow-md h-max mt-1.5 rounded-2xl w-4/5 '>
-      <img src="logo.svg" alt="logo" width={150} height={150} />
+    <div className='flex justify-between p-2 shadow-md  mt-1.5 rounded-2xl w-4/5 '>
+    <img src="/logo.svg" alt="logo" width={150} height={150} />
 
       {!isSignedIn?(<Link to={'/auth/sign-in'}>
       <Button className="bg-[#45D2B0] hover:bg-[#2dad90]">Get Started</Button>

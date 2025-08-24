@@ -22,7 +22,7 @@ if(!isSignedIn && isLoaded){
 
   return (
     <>
-    <Header/>
+     <Header/>
      <Outlet/>
     </>
   )
