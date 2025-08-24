@@ -39,7 +39,7 @@ const Dashboard = () => {
         <AddResume/>
 
         {userResumes.length>0 && (userResumes.map((resume,index)=>(
-          <ExistingResumes key={index} ResumeNum={index+1}/>
+          <ExistingResumes key={index} resumeinfo={resume} ResumeNum={index+1} />
         )))}
 
         
