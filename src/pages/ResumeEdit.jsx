@@ -3,7 +3,7 @@ import React from 'react'
 const ResumeEdit = () => {
   return (
     
-      <h1>resumedit</h1>
+      <h1>resumedit </h1>
 
     
   )

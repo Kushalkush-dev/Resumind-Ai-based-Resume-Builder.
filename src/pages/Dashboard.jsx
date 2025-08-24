@@ -1,14 +1,14 @@
 import AddResume from '@/components/Custom-components/dashboard_components/AddResume'
 import ExistingResumes from '@/components/Custom-components/dashboard_components/ExistingResume'
 import { UserButton, useUser } from '@clerk/clerk-react'
-import React, { use, useEffect } from 'react'
+import React, { use, useEffect, useState } from 'react'
 import globalApi from "./../../service/globalApi"
 
 const Dashboard = () => {
 
   const {user}=useUser()
 
-  
+  const [userResumes, setuserResumes] = useState([])
 
   useEffect(()=>{
 
@@ -16,7 +16,8 @@ const Dashboard = () => {
       try {
         if(!user) return console.log("No User");
       const resumes= await globalApi.getResumes(user?.primaryEmailAddress?.emailAddress)
-      console.log(resumes);
+      console.log(resumes.data);
+      setuserResumes(resumes.data)
 
     } catch (error) {
       console.log("Error fetching Resumes");
@@ -36,7 +37,13 @@ const Dashboard = () => {
       <p className='font-semibold'>Build your resume without hassle</p>
       <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-10 gap-4'>
         <AddResume/>
-        <ExistingResumes/>
+
+        {userResumes.length>0 && (userResumes.map((resume,index)=>(
+          <ExistingResumes key={index} ResumeNum={index+1}/>
+        )))}
+
+        
+
       </div>
     </div>
    
