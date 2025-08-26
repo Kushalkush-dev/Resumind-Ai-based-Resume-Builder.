@@ -44,19 +44,19 @@ export default{
     education:[
         {
             id:1,
-            universityName:'Western Illinois University',
-            startDate:'Aug 2018',
-            endDate:'Dec:2019',
+            universityName:'StandFord University',
+            startDate:'Aug 2020',
+            endDate:'Dec:2022',
             degree:'Master',
             major:'Computer Science',
             description:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud'
         },
         {
             id:2,
-            universityName:'Western Illinois University',
+            universityName:'IIT Bengaluru',
             startDate:'Aug 2018',
             endDate:'Dec:2019',
-            degree:'Master',
+            degree:'BE/Btech',
             major:'Computer Science',
             description:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud'
         }

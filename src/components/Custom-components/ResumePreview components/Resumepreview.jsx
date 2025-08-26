@@ -32,16 +32,35 @@ const Resumepreview = () => {
         <div className="my-2.5" key={index}>
           <h2 className='text-md font-medium'>{experience.title}</h2>
           <div className='flex justify-between'>
-            <h3 className='text-xs'>{experience.companyName},{experience.city},{experience.state}</h3>
-            <h3 className='text-xs'>{experience.startDate},{experience.endDate?experience.endDate:"Present"}</h3>
+            <h3 className='text-xs font-medium'>{experience.companyName},{experience.city},{experience.state}</h3>
+            <h3 className='text-xs font-medium' >{experience.startDate},{experience.endDate?experience.endDate:"Present"}</h3>
           </div>
            <p className='text-xs font-medium my-2'>{experience.workSummary}</p>
         </div>
-        
-
+    
       ))}
       </div>
       {/* education */}
+
+      
+       <div className='my-2'>
+      <h2 className='font-sans font-medium text-lg text-center'>Education</h2>
+      <hr className='border-2' style={{borderColor:resumeInfo.themeColor}}/>
+
+      {resumeInfo.education.map((education,index)=>(
+        <div className='my-2.5' key={index}>
+          <h2 className='text-md font-semibold'>{education.universityName}</h2>
+          <div className='flex justify-between'>
+            <h3 className='text-xs font-medium'>{education.degree} in {education.major}</h3>
+
+            <h3 className='text-xs font-medium'>{education.startDate} - {education.endDate}</h3>
+
+          </div>
+          <p className='text-xs font-medium my-2'>{education.description}</p>
+        </div>
+      ))}
+
+      </div>
 
       {/* skills */}
 
