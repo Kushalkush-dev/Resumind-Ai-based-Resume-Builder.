@@ -2,7 +2,22 @@ import React from 'react'
 
 const ResumeForm = () => {
   return (
-    <div>ResumeForm</div>
+    <>
+
+      {/* personal details */}
+
+
+      {/* summary details */}
+
+
+
+      {/* experience details */}
+
+    {/* education details */}
+
+    {/* skills details */}
+
+    </>
   )
 }
 
