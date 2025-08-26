@@ -7,6 +7,8 @@ const ResumeForm = () => {
 
   const [activeformsection, setactiveformsection] = useState(1)
 
+  const [nextButton, setnextButton] = useState(false)
+
   return (
     <>
     <div>
@@ -18,7 +20,7 @@ const ResumeForm = () => {
       <div className='flex gap-5 '>
         {activeformsection>1 && (  <Button onClick={()=>setactiveformsection(activeformsection-1)}><ArrowLeft/></Button>) }
     
-      <Button onClick={()=>setactiveformsection(activeformsection+1)}>Next<ArrowRight/></Button>
+      <Button onClick={()=>setactiveformsection(activeformsection+1)} disabled={nextButton}>Next<ArrowRight/></Button>
       </div>
 
       </div>
