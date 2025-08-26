@@ -21,6 +21,8 @@ const Resumepreview = () => {
     <hr className='border-2 my-1.5' style={{borderColor:resumeInfo.themeColor}}/>
       {/* summary */}
 
+      <p className='text-xs font-medium'>{resumeInfo.summary}</p>
+
       {/* experience */}
 
       {/* education */}
