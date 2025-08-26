@@ -1,8 +1,11 @@
+import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { ResumeInfoContext } from '@/Context/resumeInfo'
 import React, { useContext } from 'react'
 
-const Personaldetails = () => {
+const Personaldetails = ({nextButton}) => {
+
+   const { resumeInfo, setresumeInfo } = useContext(ResumeInfoContext)
 
   const handleChange=(e)=>{
 
@@ -12,16 +15,17 @@ const Personaldetails = () => {
 
   const onSave=(e)=>{
     e.preventDefault()
+    nextButton(true)
   }
 
-  const { resumeInfo, setresumeInfo } = useContext(ResumeInfoContext)
+ 
   return (
     <div className='shadow-lg h-full border-t-5 border-t-primary mt-5 p-5'>
       <h2 className='text-xl font-bold'>Personal Details</h2>
       <h3 className='text-md'>Get Started by filling basic details</h3>
 
       <div>
-        <form onSubmit={onSave}>
+        <form>
           <div className='grid grid-cols-2'>
 
             <div>
@@ -56,6 +60,7 @@ const Personaldetails = () => {
 
 
           </div>
+          <Button type='submit' className='mt-5' onSubmit={onSave}>Save</Button>
         </form>
       </div>
     </div>
