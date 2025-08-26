@@ -24,7 +24,7 @@ const ResumeForm = () => {
       </div>
 
           {/* personal details */}
-          <Personaldetails/>
+         {activeformsection==1 && <Personaldetails/>} 
 
           {/* summary details */}
 
