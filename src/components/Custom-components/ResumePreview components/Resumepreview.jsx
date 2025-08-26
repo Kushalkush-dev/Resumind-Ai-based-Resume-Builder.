@@ -63,6 +63,27 @@ const Resumepreview = () => {
       </div>
 
       {/* skills */}
+     <div className='my-2'>
+      <h2 className='font-sans font-medium text-lg text-center'>Skills</h2>
+      <hr className='border-2' style={{borderColor:resumeInfo.themeColor}}/>
+
+      <div className='grid grid-cols-2 gap-4 my-4'>
+         {resumeInfo.skills.map((skill,index)=>(
+      <div key={index} className='flex items-center justify-between'>
+
+        <h2 className='text-sm font-medium'>{skill.name}</h2>
+        <div className='h-2 bg-gray-300 w-[100px] rounded-2xl'>
+          <div className='h-2 rounded-2xl'style={{backgroundColor:resumeInfo.themeColor,
+                                   width:skill.rating+'%'}}></div>
+        </div>
+
+      </div>
+      )
+      )}
+      </div>
+     
+
+      </div>
 
     </div>
     </div>
