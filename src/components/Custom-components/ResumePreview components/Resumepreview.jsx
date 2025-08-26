@@ -17,8 +17,8 @@ const Resumepreview = () => {
           <h2>{resumeInfo.phone}</h2>
           <h2>{resumeInfo.email}</h2>
         </div>
-      </div>
-
+      
+    <hr className='border-2 my-1.5' style={{borderColor:resumeInfo.themeColor}}/>
       {/* summary */}
 
       {/* experience */}
@@ -27,7 +27,7 @@ const Resumepreview = () => {
 
       {/* skills */}
 
-
+    </div>
     </div>
   )
 }
