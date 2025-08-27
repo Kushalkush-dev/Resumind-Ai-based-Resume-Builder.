@@ -29,33 +29,33 @@ const Personaldetails = ({nextBtnState}) => {
           <div className='grid grid-cols-2 gap-6'>
 
             <div>
-              <label htmlFor="firstName" className='text-sm'>First Name</label>
-              <Input name="firstName" required type={"text"} onChange={handleChange}/>
+              <label htmlFor="firstName"  className='text-sm'>First Name</label>
+              <Input name="firstName" value={resumeInfo.firstName} required type={"text"} onChange={handleChange}/>
             </div>
 
             <div>
               <label htmlFor="lastName" className='text-sm'>Last Name</label>
-              <Input name="lastName" required type={"text"} onChange={handleChange} />
+              <Input name="lastName" value={resumeInfo.lastName} required type={"text"} onChange={handleChange} />
             </div>
 
             <div className='col-span-2'>
               <label htmlFor="jobTitle" className='text-sm'>Job Title</label>
-              <Input name="jobTitle" required type={"text"} onChange={handleChange}/>
+              <Input name="jobTitle" value={resumeInfo.jobTitle} required type={"text"} onChange={handleChange}/>
             </div>
 
              <div className='col-span-2'>
               <label htmlFor="address" className='text-sm'>Address</label>
-              <Input name="address" required type={"address"} onChange={handleChange}/>
+              <Input name="address"  value={resumeInfo.address} required type={"address"} onChange={handleChange}/>
             </div> 
 
             <div className=''>
               <label htmlFor="phone" className='text-sm'>Phone</label>
-              <Input name="phone" required type={"number"} onChange={handleChange}/>
+              <Input name="phone"  value={resumeInfo.phone} required type={"tel"} onChange={handleChange}/>
             </div> 
 
     <div className=''>
               <label htmlFor="email" className='text-sm'>Email</label>
-              <Input name="email" required type={"email"} onChange={handleChange}/>
+              <Input name="email"  value={resumeInfo.email} required type={"email"} onChange={handleChange}/>
             </div>
 
 
