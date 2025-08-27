@@ -1,0 +1,44 @@
+import axios from 'axios';
+
+
+const API_KEY=import.meta.env.VITE_STRAPI_API_KEY
+const axiosClient=axios.create({
+  baseURL:"http://localhost:1337/api/",
+  headers:{
+   'Content-Type':"application/json",
+   'Authorization':`Bearer ${API_KEY}`
+  }
+
+})
+
+const createNewResume= async (data)=>{
+  try {
+    const response=await axiosClient.post("/user-resumes",{data})
+    return response.data
+  } catch (error) {
+    console.error("Error creating resume:");
+    throw error; 
+  }
+  
+}
+
+
+const getResumes=async (email)=>{
+  try {
+    if(!email)throw new Error("email is Required") 
+    const response=await axiosClient.get(`/user-resumes?filters[userEmail][$eq]=${encodeURIComponent(email)}`)
+    const data=response.data
+    return data
+  } catch (error) {
+    console.error("Error fetching resumes:",error);
+    throw error;
+    
+  }
+
+}
+
+
+export default {
+  createNewResume,
+  getResumes
+}
