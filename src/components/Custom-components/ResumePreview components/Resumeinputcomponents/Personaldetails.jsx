@@ -13,11 +13,11 @@ const Personaldetails = ({ nextBtnState }) => {
   const { resumeInfo, setresumeInfo } = useContext(ResumeInfoContext)
 
 
-  const [formData, setformData] = useState('')
+  const [formData, setformData] = useState({})
 
   const [loading, setloading] = useState(false)
 
-  const [saveStatus, setsaveStatus] = useState()
+  
 
   const param= useParams()
   console.log(param.resumeId);
@@ -38,21 +38,20 @@ const Personaldetails = ({ nextBtnState }) => {
     setloading(true)
 
     try {
-     const res=await globalApi.updateResume(param.resumeId,formData)
+     const res=await globalApi.updateResume(param.resumeId,formData)  
      if(res){
       setloading(false)
-      setsaveStatus(true)
-      toast.success("Saved Successfully")
+      toast.success("Saved Successfully" ,{className:"!bg-green-500 !text-white"})
      }
      console.log(res);
      
       
     } catch (error) {
       console.log(error);
-      toast.error("Error while saving")
+      toast.error("Error while saving" , {className:"!bg-red-500 !text-white"})
     }finally{
       setloading(false)
-      setsaveStatus(false)
+      
     }
 
   }
