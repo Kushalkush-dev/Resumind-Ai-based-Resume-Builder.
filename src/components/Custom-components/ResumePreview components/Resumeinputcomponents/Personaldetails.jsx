@@ -5,6 +5,7 @@ import React, { useContext, useState } from 'react'
 import globalApi from './../../../../../service/globalApi'
 import { useParams } from 'react-router-dom'
 import { Loader2 } from 'lucide-react'
+import { toast } from "sonner"
 
 
 const Personaldetails = ({ nextBtnState }) => {
@@ -16,6 +17,7 @@ const Personaldetails = ({ nextBtnState }) => {
 
   const [loading, setloading] = useState(false)
 
+  const [saveStatus, setsaveStatus] = useState()
 
   const param= useParams()
   console.log(param.resumeId);
@@ -39,13 +41,20 @@ const Personaldetails = ({ nextBtnState }) => {
      const res=await globalApi.updateResume(param.resumeId,formData)
      if(res){
       setloading(false)
+      setsaveStatus(true)
+      toast.success("Saved Successfully")
      }
      console.log(res);
      
       
     } catch (error) {
       console.log(error);
+      toast.error("Error while saving")
+    }finally{
+      setloading(false)
+      setsaveStatus(false)
     }
+
   }
 
 
@@ -93,7 +102,11 @@ const Personaldetails = ({ nextBtnState }) => {
           <Button type='submit' className='mt-5'>{loading?<Loader2 className='animate-spin'/>:"Save"}</Button>
         </form>
       </div>
+
+      
     </div>
+
+    
   )
 }
 
