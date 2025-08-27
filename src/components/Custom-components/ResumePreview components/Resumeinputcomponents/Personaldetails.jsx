@@ -25,8 +25,8 @@ const Personaldetails = ({nextButton}) => {
       <h3 className='text-md'>Get Started by filling basic details</h3>
 
       <div>
-        <form>
-          <div className='grid grid-cols-2'>
+        <form onSubmit={onSave} className='mt-5'>
+          <div className='grid grid-cols-2 gap-7'>
 
             <div>
               <label htmlFor="firstName" className='text-sm'>First Name</label>
@@ -60,7 +60,7 @@ const Personaldetails = ({nextButton}) => {
 
 
           </div>
-          <Button type='submit' className='mt-5' onSubmit={onSave}>Save</Button>
+          <Button type='submit' className='mt-5'>Save</Button>
         </form>
       </div>
     </div>
