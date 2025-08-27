@@ -3,61 +3,60 @@ import { Input } from '@/components/ui/input'
 import { ResumeInfoContext } from '@/Context/resumeInfo'
 import React, { useContext } from 'react'
 
-const Personaldetails = ({nextBtn}) => {
+const Personaldetails = ({nextButton}) => {
 
    const { resumeInfo, setresumeInfo } = useContext(ResumeInfoContext)
 
   const handleChange=(e)=>{
-    nextBtn(true)
+
     const {name,value}=e.target
-    setresumeInfo({...resumeInfo,[name]:value})
+    setresumeInfo(...resumeInfo,{[name]:value})
   }
 
   const onSave=(e)=>{
     e.preventDefault()
-    nextBtn(false)
-    
+    nextButton(true)
   }
 
  
   return (
-    <div className='shadow-2xl h-max border-t-5 border-t-primary mt-5 p-5'>
+    <div className='shadow-lg h-full border-t-5 border-t-primary mt-5 p-5'>
       <h2 className='text-xl font-bold'>Personal Details</h2>
       <h3 className='text-md'>Get Started by filling basic details</h3>
 
       <div>
         <form onSubmit={onSave} className='mt-5'>
-          <div className='grid grid-cols-2 gap-5'>
+          <div className='grid grid-cols-2 gap-6'>
 
             <div>
               <label htmlFor="firstName" className='text-sm'>First Name</label>
-              <Input name="firstName" defaultValue={resumeInfo.firstName} required type={"text"} onChange={handleChange}/>
+              <Input name="firstName" required type={"text"} onChange={handleChange}/>
             </div>
 
             <div>
               <label htmlFor="lastName" className='text-sm'>Last Name</label>
-              <Input name="lastName" value={resumeInfo.lastName} required type={"text"} onChange={handleChange} />
+              <Input name="lastName" required type={"text"} onChange={handleChange} />
             </div>
 
             <div className='col-span-2'>
               <label htmlFor="jobTitle" className='text-sm'>Job Title</label>
-              <Input name="jobTitle" value={resumeInfo.jobTitle} required type={"text"} onChange={handleChange}/>
+              <Input name="jobTitle" required type={"text"} onChange={handleChange}/>
             </div>
 
              <div className='col-span-2'>
               <label htmlFor="address" className='text-sm'>Address</label>
-              <Input name="address" value={resumeInfo.address} required type={"address"} onChange={handleChange}/>
+              <Input name="address" required type={"address"} onChange={handleChange}/>
             </div> 
 
             <div className=''>
               <label htmlFor="phone" className='text-sm'>Phone</label>
-              <Input name="phone" value={resumeInfo.phone} required type={"tel"} onChange={handleChange}/>
+              <Input name="phone" required type={"number"} onChange={handleChange}/>
             </div> 
 
     <div className=''>
               <label htmlFor="email" className='text-sm'>Email</label>
-              <Input name="email" value={resumeInfo.email} required type={"email"} onChange={handleChange}/>
-            </div> 
+              <Input name="email" required type={"email"} onChange={handleChange}/>
+            </div>
 
 
           </div>
