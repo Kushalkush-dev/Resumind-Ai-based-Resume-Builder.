@@ -3,19 +3,19 @@ import { Input } from '@/components/ui/input'
 import { ResumeInfoContext } from '@/Context/resumeInfo'
 import React, { useContext } from 'react'
 
-const Personaldetails = ({nextButton}) => {
+const Personaldetails = ({nextBtnState}) => {
 
    const { resumeInfo, setresumeInfo } = useContext(ResumeInfoContext)
 
   const handleChange=(e)=>{
 
     const {name,value}=e.target
-    setresumeInfo(...resumeInfo,{[name]:value})
+    setresumeInfo({...resumeInfo,[name]:value})
   }
 
   const onSave=(e)=>{
     e.preventDefault()
-    nextButton(true)
+    nextBtnState(false)
   }
 
  
