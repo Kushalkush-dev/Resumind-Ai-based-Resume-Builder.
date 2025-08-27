@@ -26,7 +26,7 @@ const Personaldetails = ({nextButton}) => {
 
       <div>
         <form onSubmit={onSave} className='mt-5'>
-          <div className='grid grid-cols-2 gap-7'>
+          <div className='grid grid-cols-2 gap-6'>
 
             <div>
               <label htmlFor="firstName" className='text-sm'>First Name</label>
