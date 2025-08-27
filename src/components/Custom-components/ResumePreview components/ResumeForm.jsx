@@ -13,7 +13,7 @@ const ResumeForm = () => {
     <>
     <div>
 
-      <div className='flex justify-between '>
+      <div className='flex justify-between'>
 
       <Button variant={"outline"}><LayoutGrid/>Theme</Button>
 

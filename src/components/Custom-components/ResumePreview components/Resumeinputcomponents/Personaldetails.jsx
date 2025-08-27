@@ -1,21 +1,51 @@
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { ResumeInfoContext } from '@/Context/resumeInfo'
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
+import globalApi from './../../../../../service/globalApi'
+import { useParams } from 'react-router-dom'
+import { Loader2 } from 'lucide-react'
+
 
 const Personaldetails = ({ nextBtnState }) => {
 
   const { resumeInfo, setresumeInfo } = useContext(ResumeInfoContext)
 
+
+  const [formData, setformData] = useState('')
+
+  const [loading, setloading] = useState(false)
+
+
+  const param= useParams()
+  console.log(param.resumeId);
+  
   const handleChange = (e) => {
     nextBtnState(true)
     const { name, value } = e.target
+
+    setformData({...formData,[name]:value})
+
     setresumeInfo({ ...resumeInfo, [name]: value })
+
   }
 
-  const onSave = (e) => {
+  const onSave = async (e) => {
     e.preventDefault()
     nextBtnState(false)
+    setloading(true)
+
+    try {
+     const res=await globalApi.updateResume(param.resumeId,formData)
+     if(res){
+      setloading(false)
+     }
+     console.log(res);
+     
+      
+    } catch (error) {
+      console.log(error);
+    }
   }
 
 
@@ -60,7 +90,7 @@ const Personaldetails = ({ nextBtnState }) => {
 
 
           </div>
-          <Button type='submit' className='mt-5'>Save</Button>
+          <Button type='submit' className='mt-5'>{loading?<Loader2 className='animate-spin'/>:"Save"}</Button>
         </form>
       </div>
     </div>

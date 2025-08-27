@@ -38,7 +38,24 @@ const getResumes=async (email)=>{
 }
 
 
+const updateResume=async (id,data)=>{
+  try {
+    if(!id)throw new Error("email is Required") 
+    const response= await axiosClient.put(`/user-resumes/`+id,{data})
+
+    return response.data
+   
+  } catch (error) {
+    console.error("Error fetching resumes:",error);
+    throw error;
+    
+  }
+
+}
+
+
 export default {
   createNewResume,
-  getResumes
+  getResumes,
+  updateResume
 }
