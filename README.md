@@ -1,1 +1,1 @@
-``ResumeMind``
+``ResumeMind Ai``
