@@ -2,13 +2,14 @@ import React, { act, useState } from 'react'
 import Personaldetails from './Resumeinputcomponents/Personaldetails'
 import { Button } from '@/components/ui/button'
 import { ArrowLeft, ArrowRight, ArrowRightCircle, LayoutGrid } from 'lucide-react'
+import Summary from './Resumeinputcomponents/Summary'
 
 const ResumeForm = () => {
 
   const [activeformsection, setactiveformsection] = useState(1)
 
   const [nextButton, setnextButton] = useState(true)
-
+  
   return (
     <>
     <div>
@@ -29,8 +30,8 @@ const ResumeForm = () => {
          {activeformsection==1 && <Personaldetails nextBtnState={setnextButton}/>}
 
           {/* summary details */}
-
-
+         
+        {activeformsection==2 && <Summary nextBtnState={setnextButton}/>}
 
         {/* experience details */}
 
