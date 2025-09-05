@@ -15,10 +15,13 @@ const Summary = ({nextBtnState}) => {
 
   const [loading, setloading] = useState(false)
 
+  const [savebtn, setsavebtn] = useState(true)
+
   const param=useParams()
 
   useEffect(()=>{
     nextBtnState(true)
+    
   },[])
   
   const onSave = async() => {
@@ -28,6 +31,7 @@ const Summary = ({nextBtnState}) => {
      if(res){
       setloading(false)
       nextBtnState(false)
+      setsavebtn(true)
       toast.success("Saved Successfully" ,{className:"!bg-green-500 !text-white"})
      }
      console.log(res);
@@ -59,11 +63,12 @@ const Summary = ({nextBtnState}) => {
       </div> 
       <div>
         <Textarea value={resumeInfo.summary} onChange={(e)=>{setsummarytext(e.target.value) 
+                                                              setsavebtn(false)
                                                              }
                                                             
         }/>
       </div>
-       <Button type='submit' className='mt-5' onClick={onSave}>{loading?<Loader2 className='animate-spin'/>:"Save"}</Button>
+       <Button type='submit' className='mt-5' disabled={savebtn} onClick={onSave}>{loading?<Loader2 className='animate-spin'/>:"Save"}</Button>
 
     </div>
 
