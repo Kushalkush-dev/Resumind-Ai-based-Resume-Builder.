@@ -14,10 +14,11 @@ const Summary = () => {
   const [summarytext, setsummarytext] = useState(resumeInfo.summary || "")
 
   const [loading, setloading] = useState(false)
+
   const param=useParams()
 
-  const onSave = async(e) => {
-    e.preventDefault()
+  const onSave = async() => {
+     setloading(true)
      try {
      const res=await globalApi.updateResume(param.resumeId,{summary:resumeInfo.summary})  
      if(res){
@@ -54,7 +55,7 @@ const Summary = () => {
       <div>
         <Textarea Value={resumeInfo.summary} onChange={(e)=>setsummarytext(e.target.value)}/>
       </div>
-      <Button variant="outline" className='mt-5 hover:text-primary ' onClick={onSave}>{loading?<Loader2/>:"Save"}</Button>
+       <Button type='submit' className='mt-5' onClick={onSave}>{loading?<Loader2 className='animate-spin'/>:"Save"}</Button>
 
     </div>
 
