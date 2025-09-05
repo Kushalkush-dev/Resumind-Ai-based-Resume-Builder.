@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { use, useContext, useEffect, useState } from 'react'
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from '@/components/ui/button'
 import { ResumeInfoContext } from '@/Context/resumeInfo'
@@ -8,7 +8,7 @@ import { Loader2 } from 'lucide-react'
 import { toast } from 'sonner'
 
 
-const Summary = () => {
+const Summary = ({nextBtnState}) => {
   const { resumeInfo, setresumeInfo } = useContext(ResumeInfoContext)
 
   const [summarytext, setsummarytext] = useState(resumeInfo.summary || "")
@@ -17,12 +17,17 @@ const Summary = () => {
 
   const param=useParams()
 
+  useEffect(()=>{
+    nextBtnState(true)
+  },[])
+  
   const onSave = async() => {
      setloading(true)
      try {
      const res=await globalApi.updateResume(param.resumeId,{summary:resumeInfo.summary})  
      if(res){
       setloading(false)
+      nextBtnState(false)
       toast.success("Saved Successfully" ,{className:"!bg-green-500 !text-white"})
      }
      console.log(res);
@@ -53,7 +58,10 @@ const Summary = () => {
         <Button variant="outline" className={"hover:text-primary"}>Generate Summary</Button>
       </div> 
       <div>
-        <Textarea Value={resumeInfo.summary} onChange={(e)=>setsummarytext(e.target.value)}/>
+        <Textarea value={resumeInfo.summary} onChange={(e)=>{setsummarytext(e.target.value) 
+                                                             }
+                                                            
+        }/>
       </div>
        <Button type='submit' className='mt-5' onClick={onSave}>{loading?<Loader2 className='animate-spin'/>:"Save"}</Button>
 
