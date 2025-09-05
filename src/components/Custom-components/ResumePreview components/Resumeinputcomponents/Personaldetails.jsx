@@ -17,13 +17,14 @@ const Personaldetails = ({ nextBtnState }) => {
 
   const [loading, setloading] = useState(false)
 
-  
+   const [savebtn, setsavebtn] = useState(true)
 
   const param= useParams()
   console.log(param.resumeId);
   
   const handleChange = (e) => {
     nextBtnState(true)
+    setsavebtn(false)
     const { name, value } = e.target
 
     setformData({...formData,[name]:value})
@@ -36,11 +37,12 @@ const Personaldetails = ({ nextBtnState }) => {
     e.preventDefault()
     nextBtnState(false)
     setloading(true)
-
+  
     try {
      const res=await globalApi.updateResume(param.resumeId,formData)  
      if(res){
       setloading(false)
+      setsavebtn(true)
       toast.success("Saved Successfully" ,{className:"!bg-green-500 !text-white"})
      }
      console.log(res);
@@ -98,7 +100,7 @@ const Personaldetails = ({ nextBtnState }) => {
 
 
           </div>
-          <Button type='submit' className='mt-5'>{loading?<Loader2 className='animate-spin'/>:"Save"}</Button>
+          <Button type='submit' className='mt-5' disabled={savebtn}>{loading?<Loader2 className='animate-spin'/>:"Save"}</Button>
         </form>
       </div>
 
