@@ -2,6 +2,10 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from '@/components/ui/button'
 import { ResumeInfoContext } from '@/Context/resumeInfo'
+import globalApi from './../../../../../service/globalApi'
+import { useParams } from 'react-router-dom'
+import { Loader2 } from 'lucide-react'
+import { toast } from 'sonner'
 
 
 const Summary = () => {
@@ -9,12 +13,36 @@ const Summary = () => {
 
   const [summarytext, setsummarytext] = useState(resumeInfo.summary || "")
 
+  const [loading, setloading] = useState(false)
+  const param=useParams()
+
+  const onSave = async(e) => {
+    e.preventDefault()
+     try {
+     const res=await globalApi.updateResume(param.resumeId,{summary:resumeInfo.summary})  
+     if(res){
+      setloading(false)
+      toast.success("Saved Successfully" ,{className:"!bg-green-500 !text-white"})
+     }
+     console.log(res);
+     
+      
+    } catch (error) {
+      console.log(error);
+      toast.error("Error while saving" , {className:"!bg-red-500 !text-white"})
+    }finally{
+      setloading(false)
+      
+    }
+
+  }
 
   useEffect(()=>{
      setresumeInfo({ ...resumeInfo, summary: summarytext })
 
   },[summarytext])
  
+
 
   
   return (
@@ -26,7 +54,7 @@ const Summary = () => {
       <div>
         <Textarea Value={resumeInfo.summary} onChange={(e)=>setsummarytext(e.target.value)}/>
       </div>
-
+      <Button variant="outline" className='mt-5 hover:text-primary ' onClick={onSave}>{loading?<Loader2/>:"Save"}</Button>
 
     </div>
 

@@ -32,7 +32,7 @@ const ResumeForm = () => {
           {/* summary details */}
          
         {activeformsection==2 && <Summary nextBtnState={setnextButton}/>}
-
+\
         {/* experience details */}
 
         {/* education details */}
