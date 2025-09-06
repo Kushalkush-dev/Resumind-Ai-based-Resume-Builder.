@@ -4,6 +4,7 @@ import { ResumeInfoContext } from '@/Context/resumeInfo'
 import { Loader2 } from 'lucide-react'
 import React, { useState } from 'react'
 import { useContext } from 'react'
+import RichTextEditor from '../RichTextEditor'
 
 const AddExperience = ({nextBtnState}) => {
 
@@ -61,6 +62,12 @@ const AddExperience = ({nextBtnState}) => {
                   <label className="font-medium ">End Date</label>
                   <Input type="date" name="endDate" placeHolder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
                 </div>
+
+                  <div>
+                  <label className="font-medium ">Work Summary</label>
+                  <RichTextEditor/>
+                  </div>
+
                 
                 
               </div>
