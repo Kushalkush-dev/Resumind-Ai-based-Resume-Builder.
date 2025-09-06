@@ -63,8 +63,8 @@ const AddExperience = ({nextBtnState}) => {
                   <Input type="date" name="endDate" placeHolder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
                 </div>
 
-                  <div>
-                  <label className="font-medium ">Work Summary</label>
+                  <div className='col-span-2'>
+                  <label className="font-medium ">WorkSummary</label>
                   <RichTextEditor/>
                   </div>
 
