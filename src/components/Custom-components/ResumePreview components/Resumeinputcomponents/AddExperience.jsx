@@ -8,8 +8,9 @@ import RichTextEditor from '../RichTextEditor'
 
 const AddExperience = ({nextBtnState}) => {
 
-  const [loading, setloading] = useState(false)
 
+  
+  
   const experienceFields={
     title: '',
     companyName:'',
@@ -19,8 +20,29 @@ const AddExperience = ({nextBtnState}) => {
     endDate: '',
   }
   const {resumeInfo,setresumeInfo}=useContext(ResumeInfoContext)
-
+  
   const [experiencelist, setexperiencelist] = useState([experienceFields])
+  const [loading, setloading] = useState(false)
+  
+  
+
+  const handleChange=(index,event)=>{
+    
+    const {name,value}=event.target
+
+    const updateList=[...experiencelist]
+
+    updateList[index][name]=value
+
+    setexperiencelist(updateList)
+
+
+    setresumeInfo({...resumeInfo,experience:experiencelist})
+
+
+
+  }
+
 
   return (
      <div className='shadow-lg  border-t-5 border-t-primary mt-5 p-5'>
@@ -31,36 +53,36 @@ const AddExperience = ({nextBtnState}) => {
 
         <div>
           {experiencelist.map((exp,index)=>(
-            <div>
+            <div key={index}>
               <div className='grid grid-cols-2 gap-10 border p-5 my-5'>
                 <div>
                   <label className="font-medium ">Position Title</label>
-                  <Input name="title" placeHolder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
+                  <Input name="title" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
                 </div>
 
                  <div>
                   <label className="font-medium ">Company Name</label>
-                  <Input name="companyName" placeHolder="Ex:Microsoft" onChange={(event)=>handleChange(index,event)}/>
+                  <Input name="companyName" placeholder="Ex:Microsoft" onChange={(event)=>handleChange(index,event)}/>
                 </div>
 
                  <div>
                   <label className="font-medium ">City</label>
-                  <Input name="city" placeHolder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
+                  <Input name="city" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
                 </div>
 
                  <div>
                   <label className="font-medium ">State</label>
-                  <Input name="state" placeHolder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
+                  <Input name="state" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
                 </div>
 
                   <div>
                   <label className="font-medium ">Start Date</label>
-                  <Input type="date" name="startDate" placeHolder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
+                  <Input type="month" name="startDate" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
                 </div>
 
                   <div>
                   <label className="font-medium ">End Date</label>
-                  <Input type="date" name="endDate" placeHolder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
+                  <Input type="month" name="endDate" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
                 </div>
 
                   <div className='col-span-2'>

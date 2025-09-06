@@ -2,6 +2,7 @@ import { ResumeInfoContext } from '@/Context/resumeInfo'
 import React, { useContext, useState } from 'react'
 
 const Resumepreview = () => {
+  
   const { resumeInfo, setresumeInfo } = useContext(ResumeInfoContext)
   return (
     <div>
@@ -33,7 +34,7 @@ const Resumepreview = () => {
           <h2 className='text-md font-medium'>{experience.title}</h2>
           <div className='flex justify-between'>
             <h3 className='text-xs font-medium'>{experience.companyName},{experience.city},{experience.state}</h3>
-            <h3 className='text-xs font-medium' >{experience.startDate},{experience.endDate?experience.endDate:"Present"}</h3>
+            <h3 className='text-xs font-medium' >{experience.startDate} to {experience.endDate?experience.endDate:"Present"}</h3>
           </div>
            <p className='text-xs font-medium my-2'>{experience.workSummary}</p>
         </div>
