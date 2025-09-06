@@ -42,7 +42,8 @@ const Summary = ({nextBtnState}) => {
       toast.error("Error while saving" , {className:"!bg-red-500 !text-white"})
     }finally{
       setloading(false)
-      
+      nextBtnState(false)
+
     }
 
   }
