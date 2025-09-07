@@ -2,14 +2,11 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { ResumeInfoContext } from '@/Context/resumeInfo'
 import { Loader2 } from 'lucide-react'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useContext } from 'react'
 import RichTextEditor from '../RichTextEditor'
 
 const AddExperience = ({nextBtnState}) => {
-
-
-  
   
   const experienceFields={
     title: '',
@@ -23,6 +20,15 @@ const AddExperience = ({nextBtnState}) => {
   
   const [experiencelist, setexperiencelist] = useState([experienceFields])
   const [loading, setloading] = useState(false)
+
+
+useEffect(()=>{
+  setresumeInfo((prev=>(
+    {...prev,experience:experiencelist})
+  ))
+},[experiencelist])
+  
+  
   
   
 
@@ -37,12 +43,19 @@ const AddExperience = ({nextBtnState}) => {
     setexperiencelist(updateList)
 
 
-    setresumeInfo({...resumeInfo,experience:experiencelist})
+    
 
 
 
   }
 
+  const removeExperience=()=>{
+    if(experiencelist.length===1)return;
+    const updateList= [...experiencelist]
+    updateList.pop()
+    setexperiencelist(updateList)
+    
+  }
 
   const handleAddMore=()=>{
   
@@ -63,7 +76,8 @@ const AddExperience = ({nextBtnState}) => {
         <div>
           {experiencelist.map((exp,index)=>(
             <div key={index}>
-              <div className='grid grid-cols-2 gap-10 border p-5 my-5'>
+              <div className='border p-5 my-5'>
+                <div className='grid grid-cols-2 gap-10 border p-5 my-5'>
                 <div>
                   <label className="font-medium ">Position Title</label>
                   <Input name="title" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
@@ -104,9 +118,14 @@ const AddExperience = ({nextBtnState}) => {
               </div>
               <div className='flex justify-between'>
                 
-              <Button type='button' variant="outline" className='mt-5' onClick={handleAddMore} >Add more +</Button>
+              <Button type='button' variant="outline" className='mt-5 hover:text-primary' onClick={handleAddMore} >Add more +</Button>
+              <Button type='button' variant='outline' onClick={removeExperience}>Remove</Button>
               <Button type='submit' className='mt-5' >{loading?<Loader2 className='animate-spin'/>:"Save"}</Button>
               </div>
+
+
+              </div>
+              
             </div>
           ))}
         </div>
