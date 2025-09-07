@@ -37,7 +37,7 @@ const Resumepreview = () => {
             <h3 className='text-xs font-medium' >{experience.startDate} to {experience.endDate?experience.endDate:"Present"}</h3>
           </div>
 
-          <div className='text-xs font-medium my-2' dangerouslySetInnerHTML={{__html:experience.workSummary}}/>
+          <div className='text-xs font-medium my-2 resume-previewPoints' dangerouslySetInnerHTML={{__html:experience.workSummary}}/>
            
         </div>
     
