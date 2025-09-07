@@ -36,7 +36,9 @@ const Resumepreview = () => {
             <h3 className='text-xs font-medium'>{experience.companyName},{experience.city},{experience.state}</h3>
             <h3 className='text-xs font-medium' >{experience.startDate} to {experience.endDate?experience.endDate:"Present"}</h3>
           </div>
-           <p className='text-xs font-medium my-2'>{experience.workSummary}</p>
+
+          <div className='text-xs font-medium my-2' dangerouslySetInnerHTML={{__html:experience.workSummary}}/>
+           
         </div>
     
       ))}
