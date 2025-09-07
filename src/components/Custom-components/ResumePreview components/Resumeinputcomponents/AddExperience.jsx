@@ -49,10 +49,10 @@ useEffect(()=>{
 
   }
 
-  const removeExperience=()=>{
+  const removeExperience=(currindex)=>{
     if(experiencelist.length===1)return;
-    const updateList= [...experiencelist]
-    updateList.pop()
+    let updateList= [...experiencelist]
+    updateList=updateList.filter((exp,index)=>currindex!=index)
     setexperiencelist(updateList)
     
   }
@@ -119,7 +119,7 @@ useEffect(()=>{
               <div className='flex justify-between'>
                 
               <Button type='button' variant="outline" className='mt-5 hover:text-primary' onClick={handleAddMore} >Add more +</Button>
-              <Button type='button' variant='outline' onClick={removeExperience}>Remove</Button>
+              <Button type='button' variant='outline' onClick={()=>removeExperience(index)}>Remove</Button>
               <Button type='submit' className='mt-5' >{loading?<Loader2 className='animate-spin'/>:"Save"}</Button>
               </div>
 
