@@ -15,6 +15,7 @@ const AddExperience = ({nextBtnState}) => {
     state:'',
     startDate: '',
     endDate: '',
+    workSummary:''
   }
   const {resumeInfo,setresumeInfo}=useContext(ResumeInfoContext)
   
@@ -65,6 +66,21 @@ useEffect(()=>{
 
   }
 
+  const handleRichTextEditor=(e,name,index)=>{
+    const updatelist=[...experiencelist]
+    const {value}=e.target
+    updatelist[index][name]=value
+
+    setexperiencelist(updatelist)
+    
+
+
+
+
+
+
+  }
+
 
   return (
      <div className='shadow-lg  border-t-5 border-t-primary mt-5 p-5'>
@@ -110,7 +126,7 @@ useEffect(()=>{
 
                   <div className='col-span-2'>
                   <label className="font-medium ">WorkSummary</label>
-                  <RichTextEditor/>
+                  <RichTextEditor handleRichTextEditor={(e)=>handleRichTextEditor(e,'workSummary',index)}/>
                   </div>
 
                 
@@ -118,7 +134,7 @@ useEffect(()=>{
               </div>
               <div className='flex justify-between'>
                 <div className='flex gap-5 justify-between items-center'>
-              <Button type='button' onClick={handleAddMore} variant="outline" className='mt-5 hover:text-primary border-1 border-green-400 hover:scale-105 active:scale-100'  >Add more +</Button>
+              <Button type='button' onClick={handleAddMore} variant="outline" className='mt-5 hover:text-primary border-1 border-green-400 hover:scale-105 active:scale-100' >Add more +</Button>
               <Button type='button' onClick={()=>removeExperience(index)} variant='outline' className='mt-5 hover:text-red-500 border-1 border-red-500 hover:scale-105 active:scale-100'>Remove</Button>
                 </div>
               <Button type='submit' className='mt-5' >{loading?<Loader2 className='animate-spin'/>:"Save"}</Button>
