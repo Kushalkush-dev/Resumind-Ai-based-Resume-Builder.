@@ -14,7 +14,7 @@ export default{
             companyName:'Amazon',
             city:'New York',
             state:'NY',
-            startDate:'Jan 2021',
+            startDate:'2025-02',
             endDate:'',
             currentlyWorking:true,
             workSummary:' Designed, developed, and maintained full-stack applications using React and Node.js.\n'+
@@ -31,7 +31,7 @@ export default{
             city:'Charlotte',
             state:'NC',
             startDate:'May 2019',
-            endDate:'Jan 2021',
+            endDate:'2025-11',
             currentlyWorking:false,
             workSummary:' Designed, developed, and maintained full-stack applications using React and Node.js.'+
             '• Implemented responsive user interfaces with React, ensuring seamless user experiences across'+
