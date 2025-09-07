@@ -117,9 +117,10 @@ useEffect(()=>{
                 
               </div>
               <div className='flex justify-between'>
-                
-              <Button type='button' variant="outline" className='mt-5 hover:text-primary' onClick={handleAddMore} >Add more +</Button>
-              <Button type='button' variant='outline' onClick={()=>removeExperience(index)}>Remove</Button>
+                <div className='flex gap-5 justify-between items-center'>
+              <Button type='button' onClick={handleAddMore} variant="outline" className='mt-5 hover:text-primary border-1 border-green-400 hover:scale-105 active:scale-100'  >Add more +</Button>
+              <Button type='button' onClick={()=>removeExperience(index)} variant='outline' className='mt-5 hover:text-red-500 border-1 border-red-500 hover:scale-105 active:scale-100'>Remove</Button>
+                </div>
               <Button type='submit' className='mt-5' >{loading?<Loader2 className='animate-spin'/>:"Save"}</Button>
               </div>
 
