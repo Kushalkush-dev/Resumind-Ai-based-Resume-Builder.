@@ -44,6 +44,15 @@ const AddExperience = ({nextBtnState}) => {
   }
 
 
+  const handleAddMore=()=>{
+  
+    setexperiencelist([...experiencelist,experienceFields])
+    
+
+
+  }
+
+
   return (
      <div className='shadow-lg  border-t-5 border-t-primary mt-5 p-5'>
       <div className='flex justify-between items-center m-2.5'>
@@ -95,7 +104,7 @@ const AddExperience = ({nextBtnState}) => {
               </div>
               <div className='flex justify-between'>
                 
-              <Button type='button' variant="outline" className='mt-5' >Add more +</Button>
+              <Button type='button' variant="outline" className='mt-5' onClick={handleAddMore} >Add more +</Button>
               <Button type='submit' className='mt-5' >{loading?<Loader2 className='animate-spin'/>:"Save"}</Button>
               </div>
             </div>
