@@ -85,6 +85,11 @@ const EducationDetails = ({nextBtnState}) => {
                 </div>
 
                 <div>
+                  <label className="font-medium ">Degree</label>
+                  <Input  name="degree" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
+                </div>
+ 
+                <div>
                   <label className="font-medium ">Major In</label>
                   <Input  name="major" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
                 </div>
