@@ -1,10 +1,13 @@
-import React from 'react'
+import { ResumeInfoContext } from '@/Context/resumeInfo'
+import React, { useContext } from 'react'
 import { useState } from 'react'
 import { BtnBold, BtnBulletList, BtnItalic, BtnNumberedList, BtnStrikeThrough, BtnUnderline, Editor, EditorProvider, Separator, Toolbar } from 'react-simple-wysiwyg'
 
-const RichTextEditor = ({handleRichTextEditor}) => {
+const RichTextEditor = ({handleRichTextEditor,val}) => {
+
   
-  const [value, setvalue] = useState()
+  
+  const [value, setvalue] = useState(val)
 
 
   return (

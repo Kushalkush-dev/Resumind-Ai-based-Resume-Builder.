@@ -102,17 +102,17 @@ const EducationDetails = ({nextBtnState}) => {
 
                   <div>
                   <label className="font-medium ">Start Date</label>
-                  <Input type="month" name="startDate" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
+                  <Input value={resumeInfo.education[index].startDate} type="month" name="startDate" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
                 </div>
 
                   <div>
                   <label className="font-medium ">End Date</label>
-                  <Input type="month" name="endDate" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
+                  <Input value={resumeInfo.education[index].endDate} type="month" name="endDate" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
                 </div>
 
                   <div className='col-span-2'>
                   <label className="font-medium ">Description</label>
-                  <RichTextEditor handleRichTextEditor={(e)=>handleRichTextEditor(e,'description',index)}/>
+                  <RichTextEditor val={resumeInfo.education[index].description} handleRichTextEditor={(e)=>handleRichTextEditor(e,'description',index)}/>
                   </div>
 
                 
