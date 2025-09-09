@@ -54,7 +54,7 @@ const Resumepreview = () => {
         <div className='my-2.5' key={index}>
           <h2 className='text-md font-semibold'>{education.universityName}</h2>
           <div className='flex justify-between'>
-            <h3 className='text-xs font-medium'>{education.degree}  {education.major}</h3>
+            <h3 className='text-xs font-medium'>{education.degree} in {education.major}</h3>
 
             <h3 className='text-xs font-medium'>{education.startDate} - {education.endDate}</h3>
 

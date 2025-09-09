@@ -25,7 +25,7 @@ const EducationDetails = ({nextBtnState}) => {
     description:''  
     
   }
-  const [educationDetails, seteducationDetails] = useState([educationfields])
+  const [educationDetails, seteducationDetails] = useState(resumeInfo.education.length>0?resumeInfo.education:[educationfields])
   
   
   useEffect(()=>{
@@ -86,17 +86,17 @@ const EducationDetails = ({nextBtnState}) => {
                 <div className='grid grid-cols-2 gap-10 border p-5 my-5'>
                 <div>
                   <label className="font-medium ">University Name</label>
-                  <Input  name="universityName" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
+                  <Input value={resumeInfo.education[index].universityName}  name="universityName" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
                 </div>
 
                 <div>
                   <label className="font-medium ">Degree</label>
-                  <Input  name="degree" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
+                  <Input value={resumeInfo.education[index].degree} name="degree" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
                 </div>
  
                 <div>
                   <label className="font-medium ">Major In</label>
-                  <Input  name="major" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
+                  <Input value={resumeInfo.education[index].major} name="major" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
                 </div>
 
 
