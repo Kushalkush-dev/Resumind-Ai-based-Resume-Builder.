@@ -19,7 +19,7 @@ const AddExperience = ({nextBtnState}) => {
   }
   const {resumeInfo,setresumeInfo}=useContext(ResumeInfoContext)
   
-  const [experiencelist, setexperiencelist] = useState([experienceFields])
+  const [experiencelist, setexperiencelist] = useState(resumeInfo.experience.length>0?resumeInfo.experience:[experienceFields])
   const [loading, setloading] = useState(false)
 
 
@@ -104,37 +104,37 @@ useEffect(()=>{
                 <div className='grid grid-cols-2 gap-10 border p-5 my-5'>
                 <div>
                   <label className="font-medium ">Position Title</label>
-                  <Input name="title" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
+                  <Input value={resumeInfo.experience[index].title} name="title" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
                 </div>
 
                  <div>
                   <label className="font-medium ">Company Name</label>
-                  <Input name="companyName" placeholder="Ex:Microsoft" onChange={(event)=>handleChange(index,event)}/>
+                  <Input  value={resumeInfo.experience[index].companyName} name="companyName" placeholder="Ex:Microsoft" onChange={(event)=>handleChange(index,event)}/>
                 </div>
 
                  <div>
                   <label className="font-medium ">City</label>
-                  <Input name="city" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
+                  <Input  value={resumeInfo.experience[index].city} name="city" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
                 </div>
 
                  <div>
                   <label className="font-medium ">State</label>
-                  <Input name="state" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
+                  <Input  value={resumeInfo.experience[index].state} name="state" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
                 </div>
 
                   <div>
                   <label className="font-medium ">Start Date</label>
-                  <Input type="month" name="startDate" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
+                  <Input  value={resumeInfo.experience[index].startDate} type="month" name="startDate" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
                 </div>
 
                   <div>
                   <label className="font-medium ">End Date</label>
-                  <Input type="month" name="endDate" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
+                  <Input   value={resumeInfo.experience[index].endDate}type="month" name="endDate" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
                 </div>
 
                   <div className='col-span-2'>
                   <label className="font-medium ">WorkSummary</label>
-                  <RichTextEditor handleRichTextEditor={(e)=>handleRichTextEditor(e,'workSummary',index)}/>
+                  <RichTextEditor val={resumeInfo.experience[index].workSummary} handleRichTextEditor={(e)=>handleRichTextEditor(e,'workSummary',index)}/>
                   </div>
 
                 
