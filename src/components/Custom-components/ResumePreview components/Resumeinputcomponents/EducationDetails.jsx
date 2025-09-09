@@ -53,7 +53,12 @@ const EducationDetails = ({nextBtnState}) => {
 
 
   const handleRichTextEditor=(e,name,index)=>{
-    seteducationDetails([...educationDetails,educationDetails[index][name]=e.target.value])
+    const updatedDESP=[...educationDetails]
+    updatedDESP[index][name]=e.target.value
+
+    seteducationDetails(updatedDESP)
+
+
      
   }
 

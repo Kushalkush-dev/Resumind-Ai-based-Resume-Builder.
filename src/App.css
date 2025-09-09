@@ -7,12 +7,12 @@
 
 .resume-previewPoints ul {
   list-style-type: disc;   /* bullet points */
-  margin-left: 1.5rem;     /* indentation */
+  margin-left: 1rem;     /* indentation */
 }
 
 .resume-previewPoints ol {
   list-style-type: decimal; /* numbered points */
-  margin-left: 1.5rem;
+  margin-left: 1rem;
 }
 
 .logo {
