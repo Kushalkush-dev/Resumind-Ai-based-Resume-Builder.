@@ -1,93 +1,34 @@
 import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
 import { ResumeInfoContext } from '@/Context/resumeInfo'
-import { Loader2 } from 'lucide-react'
-import React, { use, useEffect, useState } from 'react'
-import { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import RichTextEditor from '../RichTextEditor'
+import { Input } from '@/components/ui/input'
 
-const AddExperience = ({nextBtnState}) => {
-  
-  const experienceFields={
-    title: '',
-    companyName:'',
-    city: '',
-    state:'',
-    startDate: '',
-    endDate: '',
-    workSummary:''
-  }
+
+
+
+const EducationDetails = ({nextBtnState}) => {
+
+
   const {resumeInfo,setresumeInfo}=useContext(ResumeInfoContext)
+
+
   
-  const [experiencelist, setexperiencelist] = useState([experienceFields])
-  const [loading, setloading] = useState(false)
-
-
-useEffect(()=>{
-  setresumeInfo((prev=>(
-    {...prev,experience:experiencelist})
-  ))
-},[experiencelist])
-  
-  
-  
-  
-
-  const handleChange=(index,event)=>{
-    
-    const {name,value}=event.target
-
-    const updateList=[...experiencelist]
-
-    updateList[index][name]=value
-
-    setexperiencelist(updateList)
-
-
-    
-
-
-
-  }
-
-  const removeExperience=(currindex)=>{
-    if(experiencelist.length===1)return;
-    let updateList= [...experiencelist]
-    updateList=updateList.filter((exp,index)=>currindex!=index)
-    setexperiencelist(updateList)
+  const educationfields={
+    unversityName:'',
+    startDate:'',
+    endDate:'',
+    degree:'',
+    major:'',
+    description:''  
     
   }
-
-  const handleAddMore=()=>{
+  const [educationDetails, seteducationDetails] = useState([educationfields])
   
-    setexperiencelist([...experiencelist,experienceFields])
-    
-
-
-  }
-
+  
   useEffect(()=>{
-    nextBtnState(true)
-  },[])
-
-  const onSave=()=>{
-    nextBtnState(false)
-  }
-
-  const handleRichTextEditor=(e,name,index)=>{
-    const updatelist=[...experiencelist]
-    const {value}=e.target
-    updatelist[index][name]=value
-
-    setexperiencelist(updatelist)
-    
-
-
-
-
-
-
-  }
+    setresumeInfo(educationDetails)
+  },[educationDetails])
 
 
   return (
@@ -98,7 +39,7 @@ useEffect(()=>{
       </div> 
 
         <div>
-          {experiencelist.map((exp,index)=>(
+          {educationDetails.map((exp,index)=>(
             <div key={index}>
               <div className='border p-5 my-5'>
                 <div className='grid grid-cols-2 gap-10 border p-5 my-5'>
@@ -168,8 +109,7 @@ useEffect(()=>{
 
     </div>
 
-
   )
 }
 
-export default AddExperience
+export default EducationDetails

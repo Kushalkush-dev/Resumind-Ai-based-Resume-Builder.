@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button'
 import { ArrowLeft, ArrowRight, ArrowRightCircle, LayoutGrid } from 'lucide-react'
 import Summary from './Resumeinputcomponents/Summary'
 import AddExperience from './Resumeinputcomponents/AddExperience'
+import EducationDetails from './Resumeinputcomponents/EducationDetails'
 
 const ResumeForm = () => {
 
@@ -37,7 +38,7 @@ const ResumeForm = () => {
         {/* experience details */}
        {activeformsection==3 && <AddExperience nextBtnState={setnextButton}/>}
         {/* education details */}
-
+       {activeformsection==4 && <EducationDetails nextBtnState={setnextButton}/>}
         {/* skills details */}
     </div>
 
