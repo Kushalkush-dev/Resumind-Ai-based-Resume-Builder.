@@ -57,9 +57,12 @@ const EducationDetails = ({nextBtnState}) => {
      
   }
 
-  const removeExperience=(index)=>{
+  const removeEducation=(currindex)=>{
 
-    const updatedEdulist=educationDetails.filter((idx)=>index!=idx)
+    if(educationDetails.length===1) return;
+
+    let updatedEdulist=[...educationDetails]
+    updatedEdulist=updatedEdulist.filter((edu,idx)=>currindex!=idx)
     seteducationDetails(updatedEdulist)
 
   }
@@ -78,12 +81,12 @@ const EducationDetails = ({nextBtnState}) => {
                 <div className='grid grid-cols-2 gap-10 border p-5 my-5'>
                 <div>
                   <label className="font-medium ">University Name</label>
-                  <Input name="universityName" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
+                  <Input  name="universityName" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
                 </div>
 
                 <div>
                   <label className="font-medium ">Major In</label>
-                  <Input name="major" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
+                  <Input  name="major" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
                 </div>
 
 
@@ -108,7 +111,7 @@ const EducationDetails = ({nextBtnState}) => {
               <div className='flex justify-between'>
                 <div className='flex gap-5 justify-between items-center'>
               <Button type='button' onClick={handleAddMore} variant="outline" className='mt-5 hover:text-primary border-1 border-green-400 hover:scale-105 active:scale-100' >Add more +</Button>
-              <Button type='button' onClick={()=>removeExperience(index)} variant='outline' className='mt-5 hover:text-red-500 border-1 border-red-500 hover:scale-105 active:scale-100'>Remove</Button>
+              <Button type='button' onClick={()=>removeEducation(index)} variant='outline' className='mt-5 hover:text-red-500 border-1 border-red-500 hover:scale-105 active:scale-100'>Remove</Button>
                 </div>
               <Button type='submit'  className='mt-5' >{loading?<Loader2 className='animate-spin'/>:"Save"}</Button>
               </div>
