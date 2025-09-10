@@ -8,7 +8,7 @@ const Resumepreview = () => {
     <div>
       {/* personal info */}
 
-      <div className='shadow-lg p-10 border-t-[20px] h-full '
+      <div className='shadow-lg p-10 border-t-[20px] h-auto '
       style={{borderColor:resumeInfo.themeColor}}>
         <h2 className='text-center font-medium text-2xl'>{resumeInfo.firstName} {resumeInfo.lastName}</h2>
         <h2 className='text-center font-medium text-xs'>{resumeInfo.jobTitle}</h2>
@@ -22,7 +22,7 @@ const Resumepreview = () => {
        <hr className='border-2 my-1.5' style={{borderColor:resumeInfo.themeColor}}/>
       {/* summary */}
 
-      <p className='text-xs font-medium'>{resumeInfo.summary}</p>
+      <p className='text-xs font-medium overflow-ellipsis'>{resumeInfo.summary}</p>
 
       {/* experience */}
       <div className='my-2'>
