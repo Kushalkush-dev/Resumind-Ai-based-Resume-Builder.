@@ -4,11 +4,16 @@ import React, { useContext, useEffect, useState } from 'react'
 import RichTextEditor from '../RichTextEditor'
 import { Input } from '@/components/ui/input'
 import { Loader2 } from 'lucide-react'
+import globalApi from './../../../../../service/globalApi'
+import { toast } from 'sonner'
+import { useParams } from 'react-router-dom'
 
 
 
 
 const EducationDetails = ({nextBtnState}) => {
+
+  const param=useParams()
 
 
   const {resumeInfo,setresumeInfo}=useContext(ResumeInfoContext)
@@ -73,6 +78,39 @@ const EducationDetails = ({nextBtnState}) => {
   }
 
 
+
+  const onSave=async ()=>{
+
+    
+
+    setloading(true)
+    
+    const data={
+      
+
+        education:educationDetails
+      
+    }
+    try {
+      const res=await globalApi.updateResume(param.resumeId,data)
+
+      if(res){
+      setloading(false)
+      toast.success("Saved Successfully" ,{className:"!bg-green-500 !text-white"})
+      nextBtnState(false)
+      console.log(res)
+      }
+      
+    } catch (error) {
+      toast.error("Error while saving",{className:"!bg-red-500 !text-white"})
+
+    }finally{
+      setloading(false)
+    }
+
+  }
+
+
   return (
      <div className='shadow-lg  border-t-5 border-t-primary mt-5 p-5'>
       <div className='flex justify-between items-center m-2.5'>
@@ -102,12 +140,12 @@ const EducationDetails = ({nextBtnState}) => {
 
                   <div>
                   <label className="font-medium ">Start Date</label>
-                  <Input value={educationDetails[index].startDate} type="month" name="startDate" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
+                  <Input value={educationDetails[index].startDate} type="date" name="startDate" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
                 </div>
 
                   <div>
                   <label className="font-medium ">End Date</label>
-                  <Input value={educationDetails[index].endDate} type="month" name="endDate" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
+                  <Input value={educationDetails[index].endDate} type="date" name="endDate" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
                 </div>
 
                   <div className='col-span-2'>
@@ -138,7 +176,7 @@ const EducationDetails = ({nextBtnState}) => {
 
       <div className='flex justify-end'>
 
-                <Button type='submit'  className='mt-5' >{loading?<Loader2 className='animate-spin'/>:"Save"}</Button>
+                <Button type='submit' onClick={onSave}  className='mt-5' >{loading?<Loader2 className='animate-spin'/>:"Save"}</Button>
       </div>
 
 
