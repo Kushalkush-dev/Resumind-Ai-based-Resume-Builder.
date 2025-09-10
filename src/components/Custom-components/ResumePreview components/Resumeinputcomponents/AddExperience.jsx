@@ -5,9 +5,16 @@ import { Loader2 } from 'lucide-react'
 import React, { use, useEffect, useState } from 'react'
 import { useContext } from 'react'
 import RichTextEditor from '../RichTextEditor'
+import globalApi from './../../../../../service/globalApi'
+import { useParams } from 'react-router-dom'
+import { toast } from 'sonner'
 
 const AddExperience = ({nextBtnState}) => {
-  
+const param=useParams()
+
+
+
+
   const experienceFields={
     title: '',
     companyName:'',
@@ -34,6 +41,9 @@ useEffect(()=>{
   
 
   const handleChange=(index,event)=>{
+
+    console.log(experiencelist);
+    
     
     const {name,value}=event.target
 
@@ -70,8 +80,33 @@ useEffect(()=>{
     nextBtnState(true)
   },[])
 
-  const onSave=()=>{
-    nextBtnState(false)
+  const onSave=async()=>{
+    setloading(true)
+    
+    const data={
+      
+
+        experience:experiencelist
+      
+    }
+    try {
+      const res=await globalApi.updateResume(param.resumeId,data)
+
+      if(res){
+      setloading(false)
+      toast.success("Saved Successfully" ,{className:"!bg-green-500 !text-white"})
+      nextBtnState(false)
+      console.log(res)
+      }
+      
+    } catch (error) {
+      toast.error("Error while saving",{className:"!bg-red-500 !text-white"})
+
+    }finally{
+      setloading(false)
+    }
+
+
   }
 
   const handleRichTextEditor=(e,name,index)=>{
@@ -80,13 +115,7 @@ useEffect(()=>{
     updatelist[index][name]=value
 
     setexperiencelist(updatelist)
-    
-
-
-
-
-
-
+  
   }
 
 
@@ -124,12 +153,12 @@ useEffect(()=>{
 
                   <div>
                   <label className="font-medium ">Start Date</label>
-                  <Input  value={experiencelist[index].startDate} type="month" name="startDate" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
+                  <Input  value={experiencelist[index].startDate} type="date" name="startDate" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
                 </div>
 
                   <div>
                   <label className="font-medium ">End Date</label>
-                  <Input   value={experiencelist[index].endDate}type="month" name="endDate" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
+                  <Input   value={experiencelist[index].endDate}type="date" name="endDate" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
                 </div>
 
                   <div className='col-span-2'>
