@@ -123,7 +123,6 @@ const EducationDetails = ({nextBtnState}) => {
               <Button type='button' onClick={handleAddMore} variant="outline" className='mt-5 hover:text-primary border-1 border-green-400 hover:scale-105 active:scale-100' >Add more +</Button>
               <Button type='button' onClick={()=>removeEducation(index)} variant='outline' className='mt-5 hover:text-red-500 border-1 border-red-500 hover:scale-105 active:scale-100'>Remove</Button>
                 </div>
-              <Button type='submit'  className='mt-5' >{loading?<Loader2 className='animate-spin'/>:"Save"}</Button>
               </div>
 
 
@@ -137,7 +136,10 @@ const EducationDetails = ({nextBtnState}) => {
 
       
 
+      <div className='flex justify-end'>
 
+                <Button type='submit'  className='mt-5' >{loading?<Loader2 className='animate-spin'/>:"Save"}</Button>
+      </div>
 
 
 
