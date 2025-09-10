@@ -140,12 +140,12 @@ const EducationDetails = ({nextBtnState}) => {
 
                   <div>
                   <label className="font-medium ">Start Date</label>
-                  <Input value={educationDetails[index].startDate} type="date" name="startDate" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
+                  <Input value={educationDetails[index].startDate} type="month" name="startDate" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
                 </div>
 
                   <div>
                   <label className="font-medium ">End Date</label>
-                  <Input value={educationDetails[index].endDate} type="date" name="endDate" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
+                  <Input value={educationDetails[index].endDate} type="month" name="endDate" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
                 </div>
 
                   <div className='col-span-2'>
