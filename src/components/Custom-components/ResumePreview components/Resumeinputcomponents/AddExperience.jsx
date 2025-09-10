@@ -104,37 +104,37 @@ useEffect(()=>{
                 <div className='grid grid-cols-2 gap-10 border p-5 my-5'>
                 <div>
                   <label className="font-medium ">Position Title</label>
-                  <Input value={resumeInfo.experience[index].title} name="title" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
+                  <Input value={experiencelist[index].title} name="title" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
                 </div>
 
                  <div>
                   <label className="font-medium ">Company Name</label>
-                  <Input  value={resumeInfo.experience[index].companyName} name="companyName" placeholder="Ex:Microsoft" onChange={(event)=>handleChange(index,event)}/>
+                  <Input  value={experiencelist[index].companyName} name="companyName" placeholder="Ex:Microsoft" onChange={(event)=>handleChange(index,event)}/>
                 </div>
 
                  <div>
                   <label className="font-medium ">City</label>
-                  <Input  value={resumeInfo.experience[index].city} name="city" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
+                  <Input  value={experiencelist[index].city} name="city" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
                 </div>
 
                  <div>
                   <label className="font-medium ">State</label>
-                  <Input  value={resumeInfo.experience[index].state} name="state" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
+                  <Input  value={experiencelist[index].state} name="state" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
                 </div>
 
                   <div>
                   <label className="font-medium ">Start Date</label>
-                  <Input  value={resumeInfo.experience[index].startDate} type="month" name="startDate" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
+                  <Input  value={experiencelist[index].startDate} type="month" name="startDate" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
                 </div>
 
                   <div>
                   <label className="font-medium ">End Date</label>
-                  <Input   value={resumeInfo.experience[index].endDate}type="month" name="endDate" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
+                  <Input   value={experiencelist[index].endDate}type="month" name="endDate" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
                 </div>
 
                   <div className='col-span-2'>
                   <label className="font-medium ">WorkSummary</label>
-                  <RichTextEditor val={resumeInfo.experience[index].workSummary} handleRichTextEditor={(e)=>handleRichTextEditor(e,'workSummary',index)}/>
+                  <RichTextEditor val={experiencelist[index].workSummary} handleRichTextEditor={(e)=>handleRichTextEditor(e,'workSummary',index)}/>
                   </div>
 
                 
@@ -145,7 +145,7 @@ useEffect(()=>{
               <Button type='button' onClick={handleAddMore} variant="outline" className='mt-5 hover:text-primary border-1 border-green-400 hover:scale-105 active:scale-100' >Add more +</Button>
               <Button type='button' onClick={()=>removeExperience(index)} variant='outline' className='mt-5 hover:text-red-500 border-1 border-red-500 hover:scale-105 active:scale-100'>Remove</Button>
                 </div>
-              <Button type='submit' onClick={onSave} className='mt-5' >{loading?<Loader2 className='animate-spin'/>:"Save"}</Button>
+            
               </div>
 
 
@@ -157,8 +157,10 @@ useEffect(()=>{
 
 
 
-      
+      <div className='flex justify-end'>
 
+            <Button type='submit' onClick={onSave} className='mt-5' >{loading?<Loader2 className='animate-spin'/>:"Save"}</Button>
+      </div>
 
 
 
