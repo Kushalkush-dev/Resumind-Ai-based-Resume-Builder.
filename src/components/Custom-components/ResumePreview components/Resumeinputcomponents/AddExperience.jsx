@@ -29,6 +29,9 @@ const param=useParams()
   const [experiencelist, setexperiencelist] = useState(resumeInfo.experience.length>0?resumeInfo.experience:[experienceFields])
   const [loading, setloading] = useState(false)
 
+  const [saveBtn, setsaveBtn] = useState(true)
+    
+
 
 useEffect(()=>{
   setresumeInfo((prev=>(
@@ -41,6 +44,12 @@ useEffect(()=>{
   
 
   const handleChange=(index,event)=>{
+
+
+    setsaveBtn(false)
+
+    setsaveBtn(false)
+    
 
     console.log(experiencelist);
     
@@ -97,6 +106,7 @@ useEffect(()=>{
       toast.success("Saved Successfully" ,{className:"!bg-green-500 !text-white"})
       nextBtnState(false)
       console.log(res)
+      setsaveBtn(true)
       }
       
     } catch (error) {
@@ -189,7 +199,7 @@ useEffect(()=>{
 
       <div className='flex justify-end'>
 
-            <Button type='submit' onClick={onSave} className='mt-5' >{loading?<Loader2 className='animate-spin'/>:"Save"}</Button>
+            <Button type='submit' disabled={saveBtn} onClick={onSave} className='mt-5' >{loading?<Loader2 className='animate-spin'/>:"Save"}</Button>
       </div>
 
 

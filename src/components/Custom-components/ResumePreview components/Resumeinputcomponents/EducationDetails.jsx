@@ -19,7 +19,12 @@ const EducationDetails = ({nextBtnState}) => {
   const {resumeInfo,setresumeInfo}=useContext(ResumeInfoContext)
   const [loading, setloading] = useState(false)
 
+    const [saveBtn, setsaveBtn] = useState(true)
+    
 
+useEffect(()=>{
+    nextBtnState(true)
+  },[])
   
   const educationfields={
     universityName:'',
@@ -44,6 +49,7 @@ const EducationDetails = ({nextBtnState}) => {
   }
 
   const handleChange=(index,event)=>{
+    setsaveBtn(false)
     const {name,value}=event.target
 
     const updatelist=[...educationDetails]
@@ -99,6 +105,7 @@ const EducationDetails = ({nextBtnState}) => {
       toast.success("Saved Successfully" ,{className:"!bg-green-500 !text-white"})
       nextBtnState(false)
       console.log(res)
+      setsaveBtn(true)
       }
       
     } catch (error) {
@@ -176,7 +183,7 @@ const EducationDetails = ({nextBtnState}) => {
 
       <div className='flex justify-end'>
 
-                <Button type='submit' onClick={onSave}  className='mt-5' >{loading?<Loader2 className='animate-spin'/>:"Save"}</Button>
+                <Button type='submit' disabled={saveBtn} onClick={onSave}  className='mt-5' >{loading?<Loader2 className='animate-spin'/>:"Save"}</Button>
       </div>
 
 

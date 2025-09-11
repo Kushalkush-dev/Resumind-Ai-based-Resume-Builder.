@@ -15,6 +15,8 @@ const Skills = () => {
   const {resumeInfo,setresumeInfo}=useContext(ResumeInfoContext)
   
   const [loading, setloading] = useState(false)
+
+  const [saveBtn, setsaveBtn] = useState(true)
   
   const skillsfield={
     name:'',
@@ -33,7 +35,7 @@ const Skills = () => {
 
   const handleChange=(value,name,index)=>{
   
-    set
+    setsaveBtn(false)
     const updateList=[...skillList]
     updateList[index][name]=value
 
@@ -64,7 +66,7 @@ const Skills = () => {
 
 const onSave=async ()=>{
 
- 
+  
  
   setloading(true)
 
@@ -80,7 +82,7 @@ const onSave=async ()=>{
     if(res){
       toast.success("Skills Saved Successfully",{className:"!bg-green-400 !text-white"})
       console.log(res);
-      
+      setsaveBtn(true)
 
     }
     
@@ -111,7 +113,7 @@ const onSave=async ()=>{
                 
                <div>
                   <label className="font-medium ">{`Skill-${index+1}`}</label>
-                  <Input  value={skillList[index].name}  onChange={(event)=>handleChange(event.target.value,"name",index)}/>
+                  <Input value={skillList[index].name}  onChange={(event)=>handleChange(event.target.value,"name",index)}/>
                 </div>
 
                 <div  className='mt-5'>
