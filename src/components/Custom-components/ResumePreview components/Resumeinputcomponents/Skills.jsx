@@ -71,15 +71,15 @@ const Skills = () => {
           {skillList.map((item,index)=>(
             <div key={index}>
               <div className='border p-5 my-5'>
-                <div className='grid grid-cols-2 gap-10 border p-5 my-5'>
+                <div className='flex justify-between items-center '>
                 
                <div>
                   <label className="font-medium ">Skill</label>
                   <Input value={skillList[index].name}  onChange={(value)=>handleChange(value,"name",index)}/>
                 </div>
 
-                <div>
-                  <Rating style={{ maxWidth: 150 }} value={skillList[index].rating} onChange={(value)=>handleChange(value,"rating",index)}  />
+                <div  className='mt-5'>
+                  <Rating style={{ maxWidth: 120 }} value={skillList[index].rating} onChange={(value)=>handleChange(value,"rating",index)}  />
                 </div>
 
                 
