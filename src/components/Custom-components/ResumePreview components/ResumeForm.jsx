@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight, ArrowRightCircle, LayoutGrid } from 'lucide-reac
 import Summary from './Resumeinputcomponents/Summary'
 import AddExperience from './Resumeinputcomponents/AddExperience'
 import EducationDetails from './Resumeinputcomponents/EducationDetails'
+import Skills from './Resumeinputcomponents/Skills'
 
 const ResumeForm = () => {
 
@@ -23,7 +24,7 @@ const ResumeForm = () => {
       <div className='flex gap-5 '>
         {activeformsection>1 && (  <Button onClick={()=>setactiveformsection(activeformsection-1)}><ArrowLeft/></Button>) }
     
-      <Button disabled={nextButton} onClick={()=>setactiveformsection(activeformsection+1)} >Next<ArrowRight/></Button>
+      {activeformsection<5 && ( <Button disabled={nextButton} onClick={()=>setactiveformsection(activeformsection+1)} >Next<ArrowRight/></Button>) }
       </div>
 
       </div>
@@ -40,6 +41,7 @@ const ResumeForm = () => {
         {/* education details */}
        {activeformsection==4 && <EducationDetails nextBtnState={setnextButton}/>}
         {/* skills details */}
+        {activeformsection==5 && <Skills nextBtnState={setnextButton}/>}
     </div>
 
     </>

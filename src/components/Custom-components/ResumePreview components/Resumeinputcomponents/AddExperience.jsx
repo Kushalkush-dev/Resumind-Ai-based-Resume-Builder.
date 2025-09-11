@@ -104,6 +104,7 @@ useEffect(()=>{
 
     }finally{
       setloading(false)
+      nextBtnState(false)
     }
 
 
