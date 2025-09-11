@@ -53,9 +53,23 @@ const updateResume=async (id,data)=>{
 
 }
 
+const fetchResumeDetails=async (id)=>{
+  try {
+    if(!id)throw new Error("no resume exist")
+      const response=await axiosClient.get(`/user-resumes/`+id)
+      return response.data
+    
+  } catch (error) {
+    console.error("Error fetching resume details",error)
+    throw error
+    
+  }
+}
+
 
 export default {
   createNewResume,
   getResumes,
-  updateResume
+  updateResume,
+  fetchResumeDetails
 }

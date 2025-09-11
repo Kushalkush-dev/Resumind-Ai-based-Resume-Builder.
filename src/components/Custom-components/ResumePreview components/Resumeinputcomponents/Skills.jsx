@@ -23,7 +23,7 @@ const Skills = () => {
     rating:0
   }  
   
-  const [skillList, setskillList] = useState(resumeInfo.skills.length>0?resumeInfo.skills:[skillsfield])
+  const [skillList, setskillList] = useState(resumeInfo?.skills?.length>0?resumeInfo?.skills:[skillsfield])
   
   useEffect(()=>{
     setresumeInfo((prev)=>({...prev,skills:skillList}))
@@ -106,7 +106,7 @@ const onSave=async ()=>{
       </div> 
 
         <div>
-          {skillList.map((item,index)=>(
+          {skillList?.map((item,index)=>(
             <div key={index}>
               <div className='border p-5 my-5'>
                 <div className='flex justify-between items-center '>

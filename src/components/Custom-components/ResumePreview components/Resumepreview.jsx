@@ -29,7 +29,7 @@ const Resumepreview = () => {
       <h2 className='font-sans font-medium text-lg text-center'>Experience</h2>
       <hr className='border-2' style={{borderColor:resumeInfo.themeColor}}/>
 
-      {resumeInfo.experience.map((experience,index)=>(
+      {resumeInfo?.experience?.map((experience,index)=>(
         <div className="my-2.5" key={index}>
           <h2 className='text-md font-medium'>{experience.title}</h2>
           <div className='flex justify-between'>
@@ -50,7 +50,7 @@ const Resumepreview = () => {
       <h2 className='font-sans font-medium text-lg text-center'>Education</h2>
       <hr className='border-2' style={{borderColor:resumeInfo.themeColor}}/>
 
-      {resumeInfo.education.map((education,index)=>(
+      {resumeInfo?.education?.map((education,index)=>(
         <div className='my-2.5' key={index}>
           <h2 className='text-md font-semibold'>{education.universityName}</h2>
           <div className='flex justify-between'>
@@ -73,13 +73,13 @@ const Resumepreview = () => {
       <hr className='border-2' style={{borderColor:resumeInfo.themeColor}}/>
 
       <div className='grid grid-cols-2 gap-4 my-4'>
-         {resumeInfo.skills.map((skill,index)=>(
+         {resumeInfo?.skills?.map((skill,index)=>(
       <div key={index} className='flex items-center justify-between'>
 
-        <h2 className='text-sm font-medium'>{skill.name}</h2>
+        <h2 className='text-sm font-medium'>{skill?.name}</h2>
         <div className='h-2 bg-gray-300 w-[100px] rounded-2xl'>
           <div className='h-2 rounded-2xl'style={{backgroundColor:resumeInfo.themeColor,
-                                   width:(skill.rating*20)+'%'}}></div>
+                                   width:(skill?.rating*20)+'%'}}></div>
         </div>
 
       </div>
