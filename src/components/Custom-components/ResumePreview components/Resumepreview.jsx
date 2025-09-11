@@ -79,7 +79,7 @@ const Resumepreview = () => {
         <h2 className='text-sm font-medium'>{skill.name}</h2>
         <div className='h-2 bg-gray-300 w-[100px] rounded-2xl'>
           <div className='h-2 rounded-2xl'style={{backgroundColor:resumeInfo.themeColor,
-                                   width:skill.rating+'%'}}></div>
+                                   width:(skill.rating*20)+'%'}}></div>
         </div>
 
       </div>
