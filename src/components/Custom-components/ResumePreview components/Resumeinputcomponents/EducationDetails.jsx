@@ -103,7 +103,6 @@ useEffect(()=>{
       if(res){
       setloading(false)
       toast.success("Saved Successfully" ,{className:"!bg-green-500 !text-white"})
-      nextBtnState(false)
       console.log(res)
       setsaveBtn(true)
       }
@@ -113,6 +112,8 @@ useEffect(()=>{
 
     }finally{
       setloading(false)
+      nextBtnState(false)
+
     }
 
   }
