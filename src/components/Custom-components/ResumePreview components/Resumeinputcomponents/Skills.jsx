@@ -5,6 +5,9 @@ import { Loader2 } from 'lucide-react'
 import React, { useContext, useEffect, useState } from 'react'
 import '@smastrom/react-rating/style.css'
 import { Rating } from '@smastrom/react-rating'
+import globalApi from './../../../../../service/globalApi'
+import { useParams } from 'react-router-dom'
+import { toast } from 'sonner'
 
 
 const Skills = () => {
@@ -30,7 +33,7 @@ const Skills = () => {
 
   const handleChange=(value,name,index)=>{
   
-
+    set
     const updateList=[...skillList]
     updateList[index][name]=value
 
@@ -57,8 +60,41 @@ const Skills = () => {
 
   }
 
+ const param=useParams()
+
+const onSave=async ()=>{
+
+ 
+ 
+  setloading(true)
 
 
+  const data={
+    skills:skillList
+  }
+
+  try {
+
+    const res=await globalApi.updateResume(param.resumeId,data)
+
+    if(res){
+      toast.success("Skills Saved Successfully",{className:"!bg-green-400 !text-white"})
+      console.log(res);
+      
+
+    }
+    
+  } catch (error) {
+
+    console.log("Error in saving Skills",error);
+    toast.error("Error Saving Skills",{className:"!bg-red-500 !text-white"})
+    
+    
+  }finally{
+    setloading(false)
+  }
+
+}
 
 
   return (
@@ -75,7 +111,7 @@ const Skills = () => {
                 
                <div>
                   <label className="font-medium ">{`Skill-${index+1}`}</label>
-                  <Input value={skillList[index].name}  onChange={(value)=>handleChange(value,"name",index)}/>
+                  <Input  value={skillList[index].name}  onChange={(event)=>handleChange(event.target.value,"name",index)}/>
                 </div>
 
                 <div  className='mt-5'>
@@ -109,7 +145,7 @@ const Skills = () => {
 
       <div className='flex justify-end'>
 
-            <Button type='submit'  className='mt-5' >{loading?<Loader2 className='animate-spin'/>:"Save"}</Button>
+            <Button type='submit' disabled={saveBtn} onClick={onSave}  className='mt-5' >{loading?<Loader2 className='animate-spin'/>:"Save"}</Button>
       </div>
 
 
