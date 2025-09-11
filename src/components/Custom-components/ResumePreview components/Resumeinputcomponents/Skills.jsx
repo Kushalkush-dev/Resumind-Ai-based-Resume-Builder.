@@ -74,7 +74,7 @@ const Skills = () => {
                 <div className='flex justify-between items-center '>
                 
                <div>
-                  <label className="font-medium ">Skill</label>
+                  <label className="font-medium ">{`Skill-${index+1}`}</label>
                   <Input value={skillList[index].name}  onChange={(value)=>handleChange(value,"name",index)}/>
                 </div>
 
