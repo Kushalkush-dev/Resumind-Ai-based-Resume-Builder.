@@ -32,7 +32,7 @@ const ResumeForm = () => {
       <div className='flex gap-5 '>
         {activeformsection>1 && (  <Button onClick={()=>setactiveformsection(activeformsection-1)}><ArrowLeft/></Button>) }
     
-      {activeformsection==6 ?(
+      {activeformsection==5 ?(
         <Link to={`/myresume/${param.resumeId}/view`}>
           <Button >Download & Share<ArrowRight/></Button>
         </Link>):
