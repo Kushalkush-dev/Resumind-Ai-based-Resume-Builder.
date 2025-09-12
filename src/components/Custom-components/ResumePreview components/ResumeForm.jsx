@@ -1,11 +1,12 @@
 import React, { act, useState } from 'react'
 import Personaldetails from './Resumeinputcomponents/Personaldetails'
 import { Button } from '@/components/ui/button'
-import { ArrowLeft, ArrowRight, ArrowRightCircle, LayoutGrid } from 'lucide-react'
+import { ArrowLeft, ArrowRight, ArrowRightCircle, Home, LayoutGrid } from 'lucide-react'
 import Summary from './Resumeinputcomponents/Summary'
 import AddExperience from './Resumeinputcomponents/AddExperience'
 import EducationDetails from './Resumeinputcomponents/EducationDetails'
 import Skills from './Resumeinputcomponents/Skills'
+import { Link, Navigate } from 'react-router-dom'
 
 const ResumeForm = () => {
 
@@ -18,8 +19,13 @@ const ResumeForm = () => {
     <div>
 
       <div className='flex justify-between'>
-
+        <div className='flex gap-5'>
+        <Link to="/dashboard">
+          <Button><Home/>Home</Button>
+        </Link>
       <Button variant={"outline"}><LayoutGrid/>Theme</Button>
+
+        </div>
 
       <div className='flex gap-5 '>
         {activeformsection>1 && (  <Button onClick={()=>setactiveformsection(activeformsection-1)}><ArrowLeft/></Button>) }

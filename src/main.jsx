@@ -10,6 +10,7 @@ import SignInPage from './auth/signin/SignIn.jsx'
 import Home from './pages/Home'
 import Dashboard from './pages/Dashboard'
 import ResumeEdit from './pages/ResumeEdit'
+import ResumeView from './pages/ResumeView'
 
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
     path: '/auth/sign-in',
     element: <SignInPage />
   },
+  {
+    path:'/myresume/:resumeId/view',
+    element:<ResumeView/>
+  }
 
 ])
 
