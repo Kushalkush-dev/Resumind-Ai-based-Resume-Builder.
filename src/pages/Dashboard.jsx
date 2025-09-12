@@ -3,15 +3,19 @@ import ExistingResumes from '@/components/Custom-components/dashboard_components
 import { UserButton, useUser } from '@clerk/clerk-react'
 import React, { use, useEffect, useState } from 'react'
 import globalApi from "./../../service/globalApi"
+import ResumeloadCards from '@/components/Custom-components/dashboard_components/ResumeloadCards'
+
 
 const Dashboard = () => {
 
   const {user}=useUser()
 
   const [userResumes, setuserResumes] = useState([])
+  const [loadingResumes, setloadingResumes] = useState(false)
 
   useEffect(()=>{
 
+    setloadingResumes(true)
     async function fetchresumes(){
       try {
         if(!user) return console.log("No User");
@@ -19,8 +23,12 @@ const Dashboard = () => {
       console.log(resumes.data);
       setuserResumes(resumes.data)
 
+     
+
     } catch (error) {
       console.log("Error fetching Resumes");
+    }finally{
+      setloadingResumes(false)
     }
     } 
 
@@ -38,9 +46,24 @@ const Dashboard = () => {
       <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-10 gap-4'>
         <AddResume/>
 
-        {userResumes.length>0 && (userResumes.map((resume,index)=>(
-          <ExistingResumes key={index} resumeinfo={resume} ResumeNum={index+1} />
-        )))}
+        {loadingResumes ?(
+          <>
+          <ResumeloadCards/>
+          <ResumeloadCards/>
+          <ResumeloadCards/>
+          
+          </>
+        ):(
+          
+          userResumes.length>0 && (userResumes.map((resume,index)=>(
+            <ExistingResumes key={index} resumeinfo={resume} ResumeNum={index+1} />
+          )))
+        
+        )
+
+        }
+
+        
 
         
 
