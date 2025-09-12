@@ -6,13 +6,15 @@ import Summary from './Resumeinputcomponents/Summary'
 import AddExperience from './Resumeinputcomponents/AddExperience'
 import EducationDetails from './Resumeinputcomponents/EducationDetails'
 import Skills from './Resumeinputcomponents/Skills'
-import { Link, Navigate } from 'react-router-dom'
+import { Link, Links, Navigate, useParams } from 'react-router-dom'
 
 const ResumeForm = () => {
 
   const [activeformsection, setactiveformsection] = useState(1)
 
   const [nextButton, setnextButton] = useState(true)
+
+  const param=useParams()
   
   return (
     <>
@@ -30,7 +32,12 @@ const ResumeForm = () => {
       <div className='flex gap-5 '>
         {activeformsection>1 && (  <Button onClick={()=>setactiveformsection(activeformsection-1)}><ArrowLeft/></Button>) }
     
-      {activeformsection<5 && ( <Button disabled={nextButton} onClick={()=>setactiveformsection(activeformsection+1)} >Next<ArrowRight/></Button>) }
+      {activeformsection==6 ?(
+        <Link to={`/myresume/${param.resumeId}/view`}>
+          <Button >Download & Share<ArrowRight/></Button>
+        </Link>):
+
+        ( <Button disabled={nextButton}  onClick={()=>setactiveformsection(activeformsection+1)} >Next<ArrowRight/></Button>) }
       </div>
 
       </div>

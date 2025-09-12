@@ -4,40 +4,48 @@ import { Button } from '@/components/ui/button'
 import { ResumeInfoContext } from '@/Context/resumeInfo'
 import dummydata from '@/data/dummydata'
 import { Download, Share2Icon } from 'lucide-react'
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import globalApi from './../../service/globalApi'
 
 const ResumeView = () => {
 
-  const[resumeInfo,setresumeInfo]=useState(dummydata)
+
+  
+  const [resumeInfo, setresumeInfo] = useState(dummydata)
+
+  const {resumeId}=useParams()
+
+useEffect(() => {
+  const fetchData = async () => {
+    const res = await globalApi.fetchResumeDetails(resumeId);
+    const data = res.data;
+    console.log(data);
+    setresumeInfo({...resumeInfo,...data});
+  };
+  fetchData();
+}, []);
+
+ const downloadResume=()=>{
+  window.print();
+ }
 
   return (
-    <div>
-      <Header/>
-
-      <ResumeInfoContext.Provider value={{resumeInfo,setresumeInfo}}>
-
-    <div className='w-full h-screen '>
-
-     
+    <div className="bg-gray-100 min-h-screen flex flex-col items-center py-8">
     
-    <div className='flex w-full justify-center items-center min-h-screen '>
-
-    <div className='w-full md:w-3/4 lg:w-2/3  p-5'>
-    <div className='flex justify-between mb-3'>
-      <Button><Download/>Download</Button>
-      <Button><Share2Icon/>Share</Button>
-    </div>   
-      <Resumepreview/>
-
-    </div>
-
-    </div>
-    </div>
-
-        
+      <div className="no-print w-full flex flex-col items-center mb-4">
+        <Header />
+        <div className="flex justify-end w-full max-w-2xl mt-4">
+          <Button onClick={downloadResume} className="mr-2"><Download />Download</Button>
+          <Button><Share2Icon />Share</Button>
+        </div>
+      </div>
+      <ResumeInfoContext.Provider value={{ resumeInfo, setresumeInfo }}>
+       
+        <div className="w-full md:w-3/4 lg:w-2/3 max-h-max resume-print">
+          <Resumepreview />
+        </div>
       </ResumeInfoContext.Provider>
-
-
     </div>
   )
 }
