@@ -7,6 +7,7 @@ import { Download, Share2Icon } from 'lucide-react'
 import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import globalApi from './../../service/globalApi'
+import { RWebShare } from "react-web-share";
 
 const ResumeView = () => {
 
@@ -35,9 +36,23 @@ useEffect(() => {
     
       <div className="no-print w-full flex flex-col items-center mb-4">
         <Header />
-        <div className="flex justify-end w-full max-w-2xl mt-4">
+        <div className="flex justify-between w-full max-w-3xl mt-4">
           <Button onClick={downloadResume} className="mr-2"><Download />Download</Button>
+
+
+ <RWebShare
+        data={{
+          text: "Check out my resume created with Resumind!",
+          url: import.meta.env.VITE_BASE_URL+`/myresume/${resumeId}/view`,
+          title: resumeInfo?.title || "My Resume",
+        }}
+        onClick={() => console.log("shared successfully!")}
+      >
           <Button><Share2Icon />Share</Button>
+        
+      </RWebShare>
+
+
         </div>
       </div>
       <ResumeInfoContext.Provider value={{ resumeInfo, setresumeInfo }}>
