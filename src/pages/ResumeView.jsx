@@ -8,6 +8,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import globalApi from './../../service/globalApi'
 import { RWebShare } from "react-web-share";
+import ResumePreviewSkeleton from '@/components/ResumeLoadcomponent/ResumePreviewSkeleton'
 
 const ResumeView = () => {
 
@@ -17,12 +18,16 @@ const ResumeView = () => {
 
   const {resumeId}=useParams()
 
+  const [resumeLoad, setresumeLoad] = useState(false)
+
 useEffect(() => {
   const fetchData = async () => {
+    setresumeLoad(true)
     const res = await globalApi.fetchResumeDetails(resumeId);
     const data = res.data;
     console.log(data);
     setresumeInfo({...resumeInfo,...data});
+    setresumeLoad(false)
   };
   fetchData();
 }, []);
@@ -58,7 +63,9 @@ useEffect(() => {
       <ResumeInfoContext.Provider value={{ resumeInfo, setresumeInfo }}>
        
         <div className="w-full md:w-3/4 lg:w-2/3 max-h-max resume-print">
-          <Resumepreview />
+
+        {resumeLoad?<ResumePreviewSkeleton/>:  <Resumepreview />
+        }
         </div>
       </ResumeInfoContext.Provider>
     </div>
