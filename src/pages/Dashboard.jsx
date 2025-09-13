@@ -14,29 +14,29 @@ const Dashboard = () => {
   const [loadingResumes, setloadingResumes] = useState(false)
 
   useEffect(()=>{
-
+    if(!user) return;
     setloadingResumes(true)
-    async function fetchresumes(){
-      try {
-        if(!user) return console.log("No User");
-      const resumes= await globalApi.getResumes(user?.primaryEmailAddress?.emailAddress)
-      console.log(resumes.data);
-      setuserResumes(resumes.data)
-
-     
-
-    } catch (error) {
-      console.log("Error fetching Resumes");
-    }finally{
-      setloadingResumes(false)
-    }
-    } 
+    
 
     fetchresumes()
     
-  },[user])
+  },[])
 
+  const  fetchresumes=async()=>{
+        try {
+          if(!user) return console.log("No User");
+        const resumes= await globalApi.getResumes(user?.primaryEmailAddress?.emailAddress)
+        console.log(resumes.data);
+        setuserResumes(resumes.data)
 
+      
+
+      } catch (error) {
+        console.log("Error fetching Resumes");
+      }finally{
+        setloadingResumes(false)
+      }
+      } 
   return (
     <>
 
@@ -56,7 +56,7 @@ const Dashboard = () => {
         ):(
           
           userResumes.length>0 && (userResumes.map((resume,index)=>(
-            <ExistingResumes key={index} resumedetail={resume} ResumeNum={index+1} />
+            <ExistingResumes key={index} resumedetail={resume} ResumeNum={index+1} refreshResumes={fetchresumes} />
           )))
         
         )

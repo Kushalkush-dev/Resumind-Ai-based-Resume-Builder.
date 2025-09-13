@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, Links, useNavigate } from 'react-router-dom'
 import { MoreVertical } from 'lucide-react'
 import globalApi from './../../../../service/globalApi'
@@ -26,7 +26,10 @@ import {
 } from "@/components/ui/alert-dialog"
 
 
-const ExistingResumes = ({resumedetail,ResumeNum}) => {
+const ExistingResumes = ({resumedetail,ResumeNum,refreshResumes}) => {
+
+
+  const [opendeleteDialog, setopendeleteDialog] = useState(false)
 
 
   const navigate=useNavigate()
@@ -35,6 +38,7 @@ const ExistingResumes = ({resumedetail,ResumeNum}) => {
     try {
       const response=await globalApi.deleteResume(resumedetail.documentId)
       if(response){
+        refreshResumes()
         toast.success("Delete Successfull", {className:"!bg-green-500 !text-white"})
       }
     } catch (error) {
@@ -67,12 +71,31 @@ const ExistingResumes = ({resumedetail,ResumeNum}) => {
       <DropdownMenuItem onClick={()=>navigate(`/dashboard/resume/${resumedetail.documentId}/edit`)}>Edit</DropdownMenuItem>
       <DropdownMenuItem onClick={()=>navigate(`/myresume/${resumedetail.documentId}/view`)}>View</DropdownMenuItem>
       <DropdownMenuItem onClick={()=>navigate(`/myresume/${resumedetail.documentId}/view`)}>Download</DropdownMenuItem>
-      <DropdownMenuItem onClick={deleteResume}>Delete</DropdownMenuItem>
+      <DropdownMenuItem onClick={()=>{
+        setopendeleteDialog(true)
+      }}>Delete</DropdownMenuItem>
     </DropdownMenuContent>
   </DropdownMenu>
     </div>
 
-
+  <AlertDialog open={opendeleteDialog}>
+  
+  <AlertDialogContent>
+    <AlertDialogHeader>
+      <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+      <AlertDialogDescription>
+        This action cannot be undone. This will permanently delete your Resume
+        and remove your data from our servers.
+      </AlertDialogDescription>
+    </AlertDialogHeader>
+    <AlertDialogFooter>
+      <AlertDialogCancel onClick={()=>setopendeleteDialog(false)}>Cancel</AlertDialogCancel>
+      <AlertDialogAction onClick={()=>{deleteResume()
+        setopendeleteDialog(false)
+      }}>Continue</AlertDialogAction>
+    </AlertDialogFooter>
+  </AlertDialogContent>
+</AlertDialog>
 
       </div>
                   
