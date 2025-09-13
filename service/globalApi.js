@@ -67,9 +67,23 @@ const fetchResumeDetails=async (id)=>{
 }
 
 
+const deleteResume=async(id)=>{
+  try {
+    const res=await axiosClient.delete(`/user-resumes/`+id)
+    return res
+    console.log("Resume Deleted Successfully");
+    
+  } catch (error) {
+    console.log("Unable to delete the resume");
+    
+  }
+
+}
+
 export default {
   createNewResume,
   getResumes,
   updateResume,
-  fetchResumeDetails
+  fetchResumeDetails,
+  deleteResume
 }
