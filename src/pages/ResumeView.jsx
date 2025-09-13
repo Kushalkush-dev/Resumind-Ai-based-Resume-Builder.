@@ -66,10 +66,10 @@ const Share=async()=>{
       <div className="print:hidden w-full flex flex-col items-center mb-6">
         <Header />
         <div className="flex justify-between w-full max-w-3xl mt-4">
-          <Button onClick={downloadResume} className="mr-2 flex items-center gap-2">
+          <Button disabled={resumeLoad} onClick={downloadResume} className="mr-2 flex items-center gap-2">
             <Download size={18} /> Download
           </Button>
-          <Button onClick={Share} className="flex items-center gap-2">
+          <Button disabled={resumeLoad} onClick={Share} className="flex items-center gap-2">
             <Share2Icon size={18} /> Share
           </Button>
         </div>
