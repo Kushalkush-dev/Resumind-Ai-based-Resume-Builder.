@@ -26,7 +26,7 @@ import {
 } from "@/components/ui/alert-dialog"
 
 
-const ExistingResumes = ({resumedetail,ResumeNum,refreshResumes}) => {
+const ExistingResumes = ({resumedetail,ResumeNum,refreshResumes,setloadingResumes}) => {
 
 
   const [opendeleteDialog, setopendeleteDialog] = useState(false)
@@ -91,6 +91,7 @@ const ExistingResumes = ({resumedetail,ResumeNum,refreshResumes}) => {
     <AlertDialogFooter>
       <AlertDialogCancel onClick={()=>setopendeleteDialog(false)}>Cancel</AlertDialogCancel>
       <AlertDialogAction onClick={()=>{deleteResume()
+        setloadingResumes(true)
         setopendeleteDialog(false)
       }}>Continue</AlertDialogAction>
     </AlertDialogFooter>

@@ -15,7 +15,6 @@ const Dashboard = () => {
 
   useEffect(()=>{
     if(!user) return;
-    setloadingResumes(true)
     
 
     fetchresumes()
@@ -23,6 +22,7 @@ const Dashboard = () => {
   },[])
 
   const  fetchresumes=async()=>{
+      setloadingResumes(true)
         try {
           if(!user) return console.log("No User");
         const resumes= await globalApi.getResumes(user?.primaryEmailAddress?.emailAddress)
@@ -56,7 +56,7 @@ const Dashboard = () => {
         ):(
           
           userResumes.length>0 && (userResumes.map((resume,index)=>(
-            <ExistingResumes key={index} resumedetail={resume} ResumeNum={index+1} refreshResumes={fetchresumes} />
+            <ExistingResumes key={index} resumedetail={resume} ResumeNum={index+1} refreshResumes={fetchresumes} setloadingResumes={setloadingResumes} />
           )))
         
         )
