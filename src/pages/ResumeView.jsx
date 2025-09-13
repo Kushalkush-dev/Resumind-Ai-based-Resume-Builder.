@@ -36,6 +36,30 @@ useEffect(() => {
   window.print();
  }
 
+const Share=async()=>{
+  if(navigator.share){
+    try {
+      
+      navigator.share({
+        title:resumeInfo.title,
+        text:"Check out my Resume Created using Resumind",
+        url:`/myresume/${resumeId}/view`
+    
+      })
+
+      console.log("Shared Successfully");
+      
+    } catch (error) {
+      console.error("Error Sharing",error);
+      
+    }
+  }else{
+    alert("Your Browser does not support sharing")
+  }
+
+ }
+ 
+
   return (
     <div className="bg-gray-100 min-h-screen flex flex-col items-center py-8">
     
@@ -45,17 +69,10 @@ useEffect(() => {
           <Button onClick={downloadResume} className="mr-2"><Download />Download</Button>
 
 
- <RWebShare
-        data={{
-          text: "Check out my resume created with Resumind!",
-          url: import.meta.env.VITE_BASE_URL+`/myresume/${resumeId}/view`,
-          title: resumeInfo?.title || "My Resume",
-        }}
-        onClick={() => console.log("shared successfully!")}
-      >
-          <Button><Share2Icon />Share</Button>
+ 
+          <Button onClick={Share}><Share2Icon />Share</Button>
         
-      </RWebShare>
+   
 
 
         </div>
