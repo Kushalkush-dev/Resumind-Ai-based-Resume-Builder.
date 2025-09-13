@@ -10,7 +10,7 @@ import { useParams } from 'react-router-dom'
 import { toast } from 'sonner'
 
 
-const Skills = () => {
+const Skills = ({nextBtnState}) => {
   
   const {resumeInfo,setresumeInfo}=useContext(ResumeInfoContext)
   
@@ -29,7 +29,9 @@ const Skills = () => {
     setresumeInfo((prev)=>({...prev,skills:skillList}))
   },[skillList])
   
-
+useEffect(()=>{
+  nextBtnState(true)
+},[])
 
 
 
@@ -83,7 +85,7 @@ const onSave=async ()=>{
       toast.success("Skills Saved Successfully",{className:"!bg-green-400 !text-white"})
       console.log(res);
       setsaveBtn(true)
-
+      nextBtnState(false)
     }
     
   } catch (error) {

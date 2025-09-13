@@ -34,7 +34,7 @@ const ResumeForm = () => {
     
       {activeformsection==5 ?(
         <Link to={`/myresume/${param.resumeId}/view`}>
-          <Button >Download & Share<ArrowRight/></Button>
+          <Button disabled={nextButton} >Download & Share<ArrowRight/></Button>
         </Link>):
 
         ( <Button disabled={nextButton}  onClick={()=>setactiveformsection(activeformsection+1)} >Next<ArrowRight/></Button>) }
