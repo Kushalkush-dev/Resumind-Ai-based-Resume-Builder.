@@ -56,7 +56,7 @@ const Dashboard = () => {
         ):(
           
           userResumes.length>0 && (userResumes.map((resume,index)=>(
-            <ExistingResumes key={index} resumeinfo={resume} ResumeNum={index+1} />
+            <ExistingResumes key={index} resumedetail={resume} ResumeNum={index+1} />
           )))
         
         )

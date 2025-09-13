@@ -7,8 +7,8 @@ import { Download, Share2Icon } from 'lucide-react'
 import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import globalApi from './../../service/globalApi'
-import { RWebShare } from "react-web-share";
 import ResumePreviewSkeleton from '@/components/ResumeLoadcomponent/ResumePreviewSkeleton'
+
 
 const ResumeView = () => {
 
