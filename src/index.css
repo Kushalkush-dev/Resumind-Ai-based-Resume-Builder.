@@ -131,38 +131,34 @@
 
 
 @media print {
-  body, html {
-    margin: 0 !important;
-    padding: 0 !important;
-    background: white !important; /* force white */
+  body {
+    margin: 0;
+    padding: 0;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
+
+  .resume-print {
+    width: 210mm !important;
+    margin: 0 auto;
+    padding: 15mm;
+    box-sizing: border-box;
+  }
+
+  
+  .section {
+    page-break-inside: auto !important; /* allow splitting */
+    break-inside: auto !important;
+    margin-bottom: 12px;
+  }
+
+
 
   .no-print {
     display: none !important;
   }
-
-  .resume-print {
-    margin: 0 auto !important;
-    padding: 0 !important;
-    box-shadow: none !important;
-    border-radius: 0 !important;
-    background: white !important;  /* ensure white */
-    width: 210mm;   /* A4 */
-    min-height: 297mm;
-    height: 297mm;
-  }
-
-  /* remove gray wrapper background */
-  .bg-gray-100 {
-    background: white !important;
-    padding: 0 !important;
-  }
-
-  @page {
-    size: A4;
-    margin: 0;
-  }
 }
+
 
 
 

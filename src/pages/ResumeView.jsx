@@ -61,32 +61,34 @@ const Share=async()=>{
  
 
   return (
-    <div className="bg-gray-100 min-h-screen flex flex-col items-center py-8">
-    
-      <div className="no-print w-full flex flex-col items-center mb-4">
+    <div className="min-h-screen flex flex-col items-center py-0 ">
+      {/* Header + Buttons (hidden when printing) */}
+      <div className="print:hidden w-full flex flex-col items-center mb-6">
         <Header />
         <div className="flex justify-between w-full max-w-3xl mt-4">
-          <Button onClick={downloadResume} className="mr-2"><Download />Download</Button>
-
-
- 
-          <Button onClick={Share}><Share2Icon />Share</Button>
-        
-   
-
-
+          <Button onClick={downloadResume} className="mr-2 flex items-center gap-2">
+            <Download size={18} /> Download
+          </Button>
+          <Button onClick={Share} className="flex items-center gap-2">
+            <Share2Icon size={18} /> Share
+          </Button>
         </div>
       </div>
-      <ResumeInfoContext.Provider value={{ resumeInfo, setresumeInfo }}>
-       
-        <div className="w-full md:w-3/4 lg:w-2/3 max-h-max resume-print">
 
-        {resumeLoad?<ResumePreviewSkeleton/>:  <Resumepreview />
-        }
+      {/* Resume Preview */}
+      <ResumeInfoContext.Provider value={{ resumeInfo, setresumeInfo }}>
+        <div
+          className="
+            w-full md:w-3/4 lg:w-2/3 
+    shadow-lg bg-white rounded-lg 
+    print:w-[210mm] print:max-h-[297mm] print:shadow-none print:rounded-none print:m-0
+          "
+        >
+          {resumeLoad ? <ResumePreviewSkeleton /> : <Resumepreview />}
         </div>
       </ResumeInfoContext.Provider>
     </div>
-  )
+  );
 }
 
 

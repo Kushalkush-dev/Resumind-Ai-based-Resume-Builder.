@@ -25,7 +25,7 @@ const Resumepreview = () => {
       <p className='text-xs font-medium overflow-ellipsis'>{resumeInfo.summary}</p>
 
       {/* experience */}
-      <div className='my-2'>
+      <div className='my-2 section'>
       <h2 className='font-sans font-medium text-lg text-center'>Experience</h2>
       <hr className='border-2' style={{borderColor:resumeInfo.themeColor}}/>
 
@@ -46,7 +46,7 @@ const Resumepreview = () => {
       {/* education */}
 
       
-       <div className='my-2'>
+       <div className='my-2 section'>
       <h2 className='font-sans font-medium text-lg text-center'>Education</h2>
       <hr className='border-2' style={{borderColor:resumeInfo.themeColor}}/>
 
@@ -68,7 +68,7 @@ const Resumepreview = () => {
       </div>
 
       {/* skills */}
-     <div className='my-2'>
+     <div className='my-2 section'>
       <h2 className='font-sans font-medium text-lg text-center'>Skills</h2>
       <hr className='border-2' style={{borderColor:resumeInfo.themeColor}}/>
 
