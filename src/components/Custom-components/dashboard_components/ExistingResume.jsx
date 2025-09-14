@@ -78,12 +78,12 @@ const ExistingResumes = ({resumedetail,ResumeNum,refreshResumes,setloadingResume
     <DropdownMenuContent>
       <DropdownMenuLabel>{resumedetail.title}</DropdownMenuLabel>
       <DropdownMenuSeparator />
-      <DropdownMenuItem onClick={()=>navigate(`/dashboard/resume/${resumedetail.documentId}/edit`)}>Edit</DropdownMenuItem>
-      <DropdownMenuItem onClick={()=>navigate(`/myresume/${resumedetail.documentId}/view`)}>View</DropdownMenuItem>
-      <DropdownMenuItem onClick={()=>navigate(`/myresume/${resumedetail.documentId}/view`)}>Download</DropdownMenuItem>
+      <DropdownMenuItem onClick={()=>navigate(`/dashboard/resume/${resumedetail.documentId}/edit`)}>✏️ Edit</DropdownMenuItem>
+      <DropdownMenuItem onClick={()=>navigate(`/myresume/${resumedetail.documentId}/view`)}>👁 View</DropdownMenuItem>
+      <DropdownMenuItem onClick={()=>navigate(`/myresume/${resumedetail.documentId}/view`)}>⬇️ Download</DropdownMenuItem>
       <DropdownMenuItem onClick={()=>{
         setopendeleteDialog(true)
-      }}>Delete</DropdownMenuItem>
+      }} className={"text-red-600"}>🗑 Delete</DropdownMenuItem>
     </DropdownMenuContent>
   </DropdownMenu>
     </div>
