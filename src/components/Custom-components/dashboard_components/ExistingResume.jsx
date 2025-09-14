@@ -69,8 +69,7 @@ const ExistingResumes = ({resumedetail,ResumeNum,refreshResumes,setloadingResume
                       border border-border/50 rounded-xl h-[280px] cursor-pointer 
                       transition-all duration-300 ease-out
                       hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1 
-                      hover:border-primary/20 hover:bg-gradient-to-br hover:from-card hover:to-primary/5"
-      >
+                      hover:border-primary/20 hover:bg-gradient-to-br hover:from-card hover:to-primary/5" style={{borderColor:resumedetail.themeColor}}>
         <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-muted/10" />
 
         <div className="relative flex flex-col items-center justify-center h-full px-8 py-6">
@@ -82,7 +81,7 @@ const ExistingResumes = ({resumedetail,ResumeNum,refreshResumes,setloadingResume
             <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2">
               {resumedetail.title}
             </h3>
-            <p className="text-sm text-muted-foreground">Resume Document</p>
+            <p className="text-sm text-muted-foreground">Last updated : {(resumedetail.updatedAt).slice(0,10)}</p>
           </div>
         </div>
 
