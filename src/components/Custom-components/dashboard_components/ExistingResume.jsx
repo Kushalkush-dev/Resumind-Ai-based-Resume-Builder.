@@ -66,10 +66,12 @@ const ExistingResumes = ({resumedetail,ResumeNum,refreshResumes,setloadingResume
      <div className="group relative">
       <div
         className="relative overflow-hidden bg-gradient-to-br from-card via-card to-card/95 
-                      border border-border/50 rounded-xl h-[280px] cursor-pointer 
+                       border-border/50 rounded-xl h-[280px] cursor-pointer 
                       transition-all duration-300 ease-out
                       hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1 
-                      hover:border-primary/20 hover:bg-gradient-to-br hover:from-card hover:to-primary/5" style={{borderColor:resumedetail.themeColor}}>
+                      hover:border-primary/20 hover:bg-gradient-to-br hover:from-card hover:to-primary/5 border-2" style={{
+                    
+                        borderColor:resumedetail.themeColor}}>
         <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-muted/10" />
 
         <div className="relative flex flex-col items-center justify-center h-full px-8 py-6">
