@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link, Links, useNavigate } from 'react-router-dom'
-import { MoreVertical } from 'lucide-react'
+import { Loader2, MoreVertical } from 'lucide-react'
 import globalApi from './../../../../service/globalApi'
 import { toast } from 'sonner'
 
@@ -31,10 +31,14 @@ const ExistingResumes = ({resumedetail,ResumeNum,refreshResumes,setloadingResume
 
   const [opendeleteDialog, setopendeleteDialog] = useState(false)
 
+  const [continueLoading, setcontinueLoading] = useState(false)
+
 
   const navigate=useNavigate()
 
   const deleteResume=async()=>{
+    setcontinueLoading(true)
+    setloadingResumes(true)
     try {
       const response=await globalApi.deleteResume(resumedetail.documentId)
       if(response){
@@ -45,7 +49,13 @@ const ExistingResumes = ({resumedetail,ResumeNum,refreshResumes,setloadingResume
       console.log("Error Deleting Resume",error);
       toast.error(" Unable to Delete Resume",{className:"!bg-red-500 !text-white"})
       
+    }finally{
+      setloadingResumes(false)
+      setcontinueLoading(false)
+      setopendeleteDialog(false)
     }
+      
+    
     
 
   }
@@ -91,9 +101,7 @@ const ExistingResumes = ({resumedetail,ResumeNum,refreshResumes,setloadingResume
     <AlertDialogFooter>
       <AlertDialogCancel onClick={()=>setopendeleteDialog(false)}>Cancel</AlertDialogCancel>
       <AlertDialogAction onClick={()=>{deleteResume()
-        setloadingResumes(true)
-        setopendeleteDialog(false)
-      }}>Continue</AlertDialogAction>
+      }}>{continueLoading?<Loader2 className='animate-spin'/>:"Continue"}</AlertDialogAction>
     </AlertDialogFooter>
   </AlertDialogContent>
 </AlertDialog>

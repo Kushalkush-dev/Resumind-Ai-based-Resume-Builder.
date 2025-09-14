@@ -7,6 +7,7 @@ import AddExperience from './Resumeinputcomponents/AddExperience'
 import EducationDetails from './Resumeinputcomponents/EducationDetails'
 import Skills from './Resumeinputcomponents/Skills'
 import { Link, Links, Navigate, useParams } from 'react-router-dom'
+import Themecolor from './Resumeinputcomponents/Themecolor'
 
 const ResumeForm = () => {
 
@@ -25,7 +26,7 @@ const ResumeForm = () => {
         <Link to="/dashboard">
           <Button><Home/>Home</Button>
         </Link>
-      <Button variant={"outline"}><LayoutGrid/>Theme</Button>
+      <Themecolor/>
 
         </div>
 
