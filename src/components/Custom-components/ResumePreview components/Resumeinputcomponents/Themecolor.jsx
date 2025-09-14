@@ -7,6 +7,9 @@ import {
 import { LayoutGrid } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { ResumeInfoContext } from '@/Context/resumeInfo'
+import globalApi from './../../../../../service/globalApi'
+import { useParams } from 'react-router-dom'
+import { toast } from 'sonner'
 
 
 const colors=[
@@ -23,18 +26,38 @@ const colors=[
 ]
 
 const Themecolor = () => {
+  
+  const {resumeId}=useParams()
+
+  
   const [selectColor, setselectColor] = useState({})
 
   const {resumeInfo,setresumeInfo}=useContext(ResumeInfoContext)
 
-  const setResumeColor=()=>{
-    setresumeInfo({...resumeInfo,themeColor:selectColor.code})
+
+
+
+  const setResumeColor=async(color)=>{
+    setselectColor(color)
+    setresumeInfo({...resumeInfo,themeColor:color.code})
+    await updateResumeThemeDB(color.code)
   }
 
-useEffect(()=>{
-  setResumeColor()
-},[selectColor])
 
+
+
+
+const updateResumeThemeDB=async(colorCode)=>{
+  try {
+    const res=await globalApi.updateResume(resumeId,{themeColor:colorCode})
+    if(res){
+      toast.success("Theme Updated",{className:"!bg-green-500 !text-white"})
+    }
+  } catch (error) {
+    toast.error("Failed Updating Theme",{className:"!bg-red-500 !text-white"})
+    
+  }
+}
 
 
   return (
@@ -43,11 +66,10 @@ useEffect(()=>{
   <PopoverContent className={"w-auto p-4 h-auto" } >
     <div className='grid grid-cols-3 gap-5 '>
 
-    {colors.map((color)=>(
+    {colors.map((color,index)=>(
       
 
-        <div onClick={()=>{setselectColor(color);
-         ;}
+        <div key={index} onClick={()=>{setResumeColor(color)}
         } className={`rounded-full w-6 h-6 hover:scale-105 cursor-pointer transition-all
            ${selectColor.name === color.name ? "ring-1" : ""}`}  style={{
           
