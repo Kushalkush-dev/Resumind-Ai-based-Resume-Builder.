@@ -67,7 +67,7 @@ const ExistingResumes = ({resumedetail,ResumeNum,refreshResumes,setloadingResume
       <div
         className="flex items-center relative justify-center animate-rotate-border  bg-conic/[from_var(--border-angle)] from-transparent to-green-500 from-70% via-80% to-100%
                   rounded-lg h-[282px] cursor-pointer p-0.5  transition-all">
-        <div className='w-full h-full bg-secondary  rounded-lg'>
+        <div className='w-full h-full bg-secondary border-2 rounded-lg'>
 
           <div className='flex justify-center items-center flex-col h-full'>
               <div className="mb-4 p-3 rounded-full bg-primary/10 text-primary group-hover:bg-primary/15 transition-colors">
