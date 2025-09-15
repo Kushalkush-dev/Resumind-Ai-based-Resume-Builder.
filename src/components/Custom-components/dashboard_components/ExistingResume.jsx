@@ -65,28 +65,9 @@ const ExistingResumes = ({resumedetail,ResumeNum,refreshResumes,setloadingResume
     
      <div className="group relative">
       <div
-        className="relative overflow-hidden bg-gradient-to-br from-card via-card to-card/95 
-                       border-border/50 rounded-xl h-[280px] cursor-pointer 
-                      transition-all duration-300 ease-out
-                      hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1 
-                      hover:border-primary/20 hover:bg-gradient-to-br hover:from-card hover:to-primary/5 border-2" style={{
-                    
-                        borderColor:resumedetail.themeColor}}>
-        <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-muted/10" />
-
-        <div className="relative flex flex-col items-center justify-center h-full px-8 py-6">
-          <div className="mb-4 p-3 rounded-full bg-primary/10 text-primary group-hover:bg-primary/15 transition-colors">
-            <FileText className="h-8 w-8" />
-          </div>
-
-          <div className="text-center space-y-2">
-            <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2">
-              {resumedetail.title}
-            </h3>
-            <p className="text-sm text-muted-foreground">Last updated : {(resumedetail.updatedAt).slice(0,10)}</p>
-          </div>
-        </div>
-
+        className="flex items-center justify-center animate-rotate-border  bg-conic/[from_var(--border-angle)] from-transparent to-green-500 from-70% via-80% to-100%
+                  rounded-lg h-[282px] cursor-pointer p-0.5  transition-all">
+        <div className='w-full h-full bg-secondary  rounded-lg'>
         <div className="absolute opacity-100 top-4 right-4 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-200">
           <DropdownMenu>
             <DropdownMenuTrigger className="p-2 rounded-full bg-background/80 backdrop-blur-sm border border-border/50 hover:bg-background hover:border-border transition-all">
@@ -159,6 +140,8 @@ const ExistingResumes = ({resumedetail,ResumeNum,refreshResumes,setloadingResume
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
+        </div>
+       
     </div>
     
   )
