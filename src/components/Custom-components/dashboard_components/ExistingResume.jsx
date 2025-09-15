@@ -65,9 +65,22 @@ const ExistingResumes = ({resumedetail,ResumeNum,refreshResumes,setloadingResume
     
      <div className="group relative">
       <div
-        className="flex items-center justify-center animate-rotate-border  bg-conic/[from_var(--border-angle)] from-transparent to-green-500 from-70% via-80% to-100%
+        className="flex items-center relative justify-center animate-rotate-border  bg-conic/[from_var(--border-angle)] from-transparent to-green-500 from-70% via-80% to-100%
                   rounded-lg h-[282px] cursor-pointer p-0.5  transition-all">
         <div className='w-full h-full bg-secondary  rounded-lg'>
+
+          <div className='flex justify-center items-center flex-col h-full'>
+              <div className="mb-4 p-3 rounded-full bg-primary/10 text-primary group-hover:bg-primary/15 transition-colors">
+            <FileText className="h-8 w-8" />
+          </div>
+
+          <div className="text-center space-y-2">
+            <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2">
+              {resumedetail.title}
+            </h3>
+            <p className="text-sm text-muted-foreground">Last updated : {(resumedetail.updatedAt).slice(0,10)}</p>
+          </div>
+          </div>
         <div className="absolute opacity-100 top-4 right-4 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-200">
           <DropdownMenu>
             <DropdownMenuTrigger className="p-2 rounded-full bg-background/80 backdrop-blur-sm border border-border/50 hover:bg-background hover:border-border transition-all">
