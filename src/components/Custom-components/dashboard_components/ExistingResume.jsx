@@ -62,11 +62,17 @@ const ExistingResumes = ({resumedetail,ResumeNum,refreshResumes,setloadingResume
 
 
   return (
-    
+     //for tailwind instead of style css but doesnt support dynamic conic color 
+
+     // bg-conic/[from_var(--border-angle)] from-transparent to-green-500 from-70% via-80% to-100%  
+
+
      <div className="group relative">
       <div
-        className="flex items-center relative justify-center animate-rotate-border  bg-conic/[from_var(--border-angle)] from-transparent to-green-500 from-70% via-80% to-100%
-                  rounded-lg h-[282px] cursor-pointer p-0.5  transition-all">
+        className="flex items-center relative justify-center animate-rotate-border 
+                  rounded-lg h-[282px] cursor-pointer p-0.5 hover:scale-105  transition-all" style={{
+                    background:`conic-gradient(from var(--border-angle), transparent 70%, ${resumedetail.themeColor} 100%)`      
+                  }}>                                                                                                           
         <div className='w-full h-full bg-secondary border-2 rounded-lg'>
 
           <div className='flex justify-center items-center flex-col h-full'>
