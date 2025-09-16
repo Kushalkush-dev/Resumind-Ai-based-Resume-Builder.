@@ -18,6 +18,8 @@ const Summary = ({nextBtnState}) => {
 
   const [savebtn, setsavebtn] = useState(true)
 
+  const [generatedSummary, setgeneratedSummary] = useState()
+
   const param=useParams()
 
   useEffect(()=>{
@@ -53,6 +55,9 @@ const Summary = ({nextBtnState}) => {
      setresumeInfo({ ...resumeInfo, summary: summarytext })
 
   },[summarytext])
+
+
+  
  
 const prompt="Job Title: {jobTitle} , Depends on job title give me list of  summary for 3 experience level, Fresher Level and Mid level and Senior Level in 3 -4 lines in array format, With summery and experience_level Field in JSON Format"
 const GenerateAiSummary=async()=>{
@@ -60,11 +65,16 @@ const GenerateAiSummary=async()=>{
   try {
     const PROMPT=prompt.replace('{jobTitle}',resumeInfo?.jobTitle)
     const res=await AiModel.generateAicontent(PROMPT)
-    console.log(res.text);
+   
+     setgeneratedSummary(res.text)
+    
     
     
   } catch (error) {
   console.error("Error getting AI response",error)  
+  }finally{
+    console.log(generatedSummary);
+    
   }
 
 }
