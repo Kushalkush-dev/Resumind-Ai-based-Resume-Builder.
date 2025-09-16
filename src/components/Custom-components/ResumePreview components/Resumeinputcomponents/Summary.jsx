@@ -6,6 +6,7 @@ import globalApi from './../../../../../service/globalApi'
 import { useParams } from 'react-router-dom'
 import { Loader2 } from 'lucide-react'
 import { toast } from 'sonner'
+import AiModel from './../../../../../service/AiModel'
 
 
 const Summary = ({nextBtnState}) => {
@@ -53,14 +54,20 @@ const Summary = ({nextBtnState}) => {
 
   },[summarytext])
  
+const prompt="Job Title: {jobTitle} , Depends on job title give me list of  summery for 3 experience level, Mid Level and Freasher level in 3 -4 lines in array format, With summery and experience_level Field in JSON Format"
+const GenerateAiSummary=async()=>{
 
-
+  const PROMPT=prompt.replace('{jobTitle}',resumeInfo?.jobTitle)
+  const res=await AiModel.generateAicontent(PROMPT)
+  console.log(res.text);
+  
+}
   
   return (
     <div className='shadow-lg h-full border-t-5 border-t-primary mt-5 p-5'>
       <div className='flex justify-between items-center m-2.5'>
         <h2 className='text-xl font-bold'>Add Summary</h2>
-        <Button variant="outline" className={"hover:text-primary"}>Generate Summary</Button>
+        <Button onClick={()=>GenerateAiSummary()} variant="outline" className={"hover:text-primary"}>Generate Summary</Button>
       </div> 
       <div>
         <Textarea value={resumeInfo.summary} onChange={(e)=>{setsummarytext(e.target.value) 
