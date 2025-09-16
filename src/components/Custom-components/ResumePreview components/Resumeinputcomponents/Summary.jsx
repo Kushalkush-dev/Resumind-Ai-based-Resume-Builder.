@@ -54,13 +54,19 @@ const Summary = ({nextBtnState}) => {
 
   },[summarytext])
  
-const prompt="Job Title: {jobTitle} , Depends on job title give me list of  summery for 3 experience level, Mid Level and Freasher level in 3 -4 lines in array format, With summery and experience_level Field in JSON Format"
+const prompt="Job Title: {jobTitle} , Depends on job title give me list of  summary for 3 experience level, Fresher Level and Mid level and Senior Level in 3 -4 lines in array format, With summery and experience_level Field in JSON Format"
 const GenerateAiSummary=async()=>{
 
-  const PROMPT=prompt.replace('{jobTitle}',resumeInfo?.jobTitle)
-  const res=await AiModel.generateAicontent(PROMPT)
-  console.log(res.text);
-  
+  try {
+    const PROMPT=prompt.replace('{jobTitle}',resumeInfo?.jobTitle)
+    const res=await AiModel.generateAicontent(PROMPT)
+    console.log(res.text);
+    
+    
+  } catch (error) {
+  console.error("Error getting AI response",error)  
+  }
+
 }
   
   return (
