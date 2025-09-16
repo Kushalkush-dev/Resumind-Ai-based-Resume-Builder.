@@ -62,7 +62,7 @@ const updateResumeThemeDB=async(colorCode)=>{
 
   return (
     <Popover>
-  <PopoverTrigger><Button variant={"outline"}><LayoutGrid/>Theme</Button></PopoverTrigger>
+  <PopoverTrigger asChild><Button variant={"outline"}><LayoutGrid/>Theme</Button></PopoverTrigger>
   <PopoverContent className={"w-auto p-4 h-auto" } >
     <div className='grid grid-cols-3 gap-5 '>
 
