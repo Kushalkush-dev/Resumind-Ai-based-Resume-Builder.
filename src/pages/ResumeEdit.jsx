@@ -13,11 +13,15 @@ const ResumeEdit = () => {
   const [resumeInfo, setresumeInfo] = useState(dummydata)
 
 
+  const [fetchresumedataDB, setfetchresumedataDB] = useState(false)
+
+
   useEffect(()=>{
     fetchresumeDetails()
   },[])
 
   const fetchresumeDetails=async()=>{
+    setfetchresumedataDB(true)
     try {
       const res=await globalApi.fetchResumeDetails(param.resumeId)
 
@@ -41,6 +45,8 @@ const ResumeEdit = () => {
     } catch (error) {
       console.error("Error fetching details from frontend")
       
+    }finally{
+      setfetchresumedataDB(false)
     }
   }
 
@@ -51,7 +57,7 @@ const ResumeEdit = () => {
     <ResumeInfoContext.Provider value={{resumeInfo,setresumeInfo}}>
      <div className='grid grid-cols-1 md:grid-cols-2 gap-7 p-9'>
 
-    <ResumeForm/>
+    <ResumeForm resumefetchDB={fetchresumedataDB}/>
 
     <Resumepreview/>
     

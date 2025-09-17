@@ -8,8 +8,9 @@ import EducationDetails from './Resumeinputcomponents/EducationDetails'
 import Skills from './Resumeinputcomponents/Skills'
 import { Link, Links, Navigate, useParams } from 'react-router-dom'
 import Themecolor from './Resumeinputcomponents/Themecolor'
+import PersonalFormSkeleton from '@/components/ResumeLoadcomponent/PersonalFormSkeleton'
 
-const ResumeForm = () => {
+const ResumeForm = ({resumefetchDB}) => {
 
   const [activeformsection, setactiveformsection] = useState(1)
 
@@ -44,7 +45,7 @@ const ResumeForm = () => {
       </div>
 
           {/* personal details */}
-         {activeformsection==1 && <Personaldetails nextBtnState={setnextButton}/>}
+         {activeformsection==1 && (resumefetchDB?<PersonalFormSkeleton/>:<Personaldetails nextBtnState={setnextButton}/>)}
 
           {/* summary details */}
          
