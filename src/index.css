@@ -134,7 +134,7 @@
 
 @theme{
 
-  --animate-rotate-border:border-rotate 3s linear infinite;
+  --animate-rotate-border:border-rotate 4s linear infinite;
 
 
   @keyframes border-rotate{
