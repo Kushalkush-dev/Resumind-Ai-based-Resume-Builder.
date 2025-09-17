@@ -4,10 +4,11 @@ import { Button } from '@/components/ui/button'
 import { ResumeInfoContext } from '@/Context/resumeInfo'
 import globalApi from './../../../../../service/globalApi'
 import { useParams } from 'react-router-dom'
-import { Loader2 } from 'lucide-react'
+import { Copy, CopyCheckIcon, Loader2 } from 'lucide-react'
 import { toast } from 'sonner'
 import AiModel from './../../../../../service/AiModel'
 import SummaryLoadSkeleton from '@/components/ResumeLoadcomponent/SummaryLoadSkeleton'
+import CopyButton from '../CopyButton'
 
 
 const Summary = ({nextBtnState}) => {
@@ -59,7 +60,8 @@ const Summary = ({nextBtnState}) => {
 
   },[summarytext])
 
-
+ 
+  
   
  
 const prompt="Job Title: {jobTitle} , Depends on job title give me list of  summary for 3 experience level, Fresher Level and Mid level and Senior Level in 3 -4 lines in array format, With summery and experience_level Field in JSON Format"
@@ -108,10 +110,15 @@ const GenerateAiSummary=async()=>{
         {generatedSummary.map((item,index)=>(
 
         <div key={index} className=' p-3.5 mb-4 rounded-2xl bg-secondary border shadow-md'>
-          <h2 className='text-xl py-1.5 font-medium text-black' style={{
+          <div className='flex justify-between'>
+            
+          <h2 className='text-xl py-1.5 font-bold text-black ' style={{
             color:resumeInfo.themeColor
           }}>{item.experience_level}</h2>
-          <div className='text-sm text-black'>{item.summary}</div>
+
+          <CopyButton item={item}/>
+          </div>
+          <div className='text-sm text-black font-semibold'>{item.summary}</div>
         </div>
 
         ))}
