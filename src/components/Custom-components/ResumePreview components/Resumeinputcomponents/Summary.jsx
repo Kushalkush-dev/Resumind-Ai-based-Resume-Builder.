@@ -18,7 +18,7 @@ const Summary = ({nextBtnState}) => {
 
   const [savebtn, setsavebtn] = useState(true)
 
-  const [generatedSummary, setgeneratedSummary] = useState()
+  const [generatedSummary, setgeneratedSummary] = useState([])
 
   const param=useParams()
 
@@ -65,8 +65,8 @@ const GenerateAiSummary=async()=>{
   try {
     const PROMPT=prompt.replace('{jobTitle}',resumeInfo?.jobTitle)
     const res=await AiModel.generateAicontent(PROMPT)
-   
-     setgeneratedSummary(res.text)
+    const toJson=JSON.parse(res.text)
+     setgeneratedSummary(toJson)
     
     
     
@@ -80,7 +80,7 @@ const GenerateAiSummary=async()=>{
 }
   
   return (
-    <div className='shadow-lg h-full border-t-5 border-t-primary mt-5 p-5'>
+    <div className='shadow-lg  border-t-5 h-auto border-t-primary mt-5 p-5'>
       <div className='flex justify-between items-center m-2.5'>
         <h2 className='text-xl font-bold'>Add Summary</h2>
         <Button onClick={()=>GenerateAiSummary()} variant="outline" className={"hover:text-primary"}>Generate Summary</Button>
@@ -93,7 +93,21 @@ const GenerateAiSummary=async()=>{
         }/>
       </div>
        <Button type='submit' className='mt-5' disabled={savebtn} onClick={onSave}>{loading?<Loader2 className='animate-spin'/>:"Save"}</Button>
+      
 
+      <div className='py-6'>
+        {generatedSummary.map((item,index)=>(
+
+        <div key={index} className=' p-3.5 mb-4 rounded-2xl bg-secondary border shadow-md'>
+          <h2 className='text-xl py-2 font-medium text-black' style={{
+            color:resumeInfo.themeColor
+          }}>{item.experience_level}</h2>
+          <div className='text-sm text-black'>{item.summary}</div>
+        </div>
+
+        ))}
+
+      </div>
     </div>
 
 
