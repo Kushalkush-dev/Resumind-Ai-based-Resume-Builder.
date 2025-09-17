@@ -87,7 +87,7 @@ const GenerateAiSummary=async()=>{
     <div className='shadow-lg  border-t-5 h-auto border-t-primary mt-5 p-5'>
       <div className='flex justify-between items-center m-2.5'>
         <h2 className='text-xl font-bold'>Add Summary</h2>
-        <Button onClick={()=>GenerateAiSummary()} variant="outline" className={"hover:text-primary"}>Generate Summary</Button>
+        <Button onClick={()=>GenerateAiSummary()} variant="outline" className="border-1 hover:text-primary hover:scale-102 active:scale-100" style={{borderColor:resumeInfo?.themeColor}}>Generate Summary </Button>
       </div> 
       <div>
         <Textarea value={resumeInfo.summary} onChange={(e)=>{setsummarytext(e.target.value) 
@@ -98,6 +98,11 @@ const GenerateAiSummary=async()=>{
       </div>
        <Button type='submit' className='mt-5' disabled={savebtn} onClick={onSave}>{loading?<Loader2 className='animate-spin'/>:"Save"}</Button>
       
+      
+
+
+      {summaryloading?
+      <SummaryLoadSkeleton/>:(
 
       <div className='py-6'>
         {generatedSummary.map((item,index)=>(
@@ -112,9 +117,11 @@ const GenerateAiSummary=async()=>{
         ))}
 
       </div>
+      )}
 
 
-      <SummaryLoadSkeleton/>
+
+      
     </div>
 
 
