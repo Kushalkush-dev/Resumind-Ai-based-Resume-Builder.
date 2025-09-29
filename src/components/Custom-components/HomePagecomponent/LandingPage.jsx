@@ -1,14 +1,64 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-import { FileText, Download, Share2, Sparkles, Zap, Star, Github, GithubIcon, GitBranchPlus, ArrowRightCircle } from "lucide-react";
+import { FileText, Download, Share2, Sparkles, Zap, Star, Github, GithubIcon, GitBranchPlus, ArrowRightCircle, Monitor, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Navigate, useNavigate } from "react-router-dom";
 import path from "path";
 
 export default function LandingPage() {
+
+
+  const [isMobile,setisMobile]=useState()
+
+  useEffect(()=>{
+    const handleScreen=()=>{
+      setisMobile(window.innerWidth<=768)
+    }
+
+    handleScreen()
+
+    window.addEventListener("resize",handleScreen)
+    return ()=>window.removeEventListener("resize",handleScreen)
+
+
+
+  },[])
+
+
+
   const navigate=useNavigate()
   return (
+    <>
+    
+   <div>
+   {isMobile && (
+        <div className="fixed inset-0 bg-black/50 z-[100] flex items-center justify-center p-4">
+          <div className="bg-white rounded-lg p-6 max-w-sm w-full border border-gray-200 shadow-lg">
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center gap-2">
+                <Monitor className="w-5 h-5 text-teal-500" />
+                <h3 className="font-semibold">Better Experience</h3>
+              </div>
+              <Button variant="ghost" size="sm" onClick={() => setisMobile(false)} className="h-8 w-8 p-0">
+                <X className="w-4 h-4" />
+              </Button>
+            </div>
+            <p className="text-gray-600 mb-4 text-sm">
+              For the best resume building experience, please use ResumInd on a desktop or PC.
+            </p>
+            <Button
+              onClick={() => setisMobile(false)}
+              className="w-full bg-teal-500 hover:bg-teal-600 text-white"
+            >
+              Continue Anyway
+            </Button>
+          </div>
+        </div>
+      )}   </div>
+
+    
+
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       {/* Hero Section */}
       <section className="container mx-auto px-6 py-20 text-center">
@@ -127,5 +177,7 @@ export default function LandingPage() {
         <p>© {new Date().getFullYear()} Resumind. All rights reserved.</p>
       </footer>
     </div>
+
+     </>
   );
 }
