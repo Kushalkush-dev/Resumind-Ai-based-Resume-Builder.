@@ -5,10 +5,11 @@ import { UserButton, useUser } from '@clerk/clerk-react'
 
 const Header = () => {
   const {user,isSignedIn}=useUser()
+
   return (
     <>
-    <div className='flex w-full justify-center items-center'>
-    <div className='flex justify-between p-2 shadow-md  mt-1.5 rounded-2xl w-4/5 '>
+    <div className='flex w-full justify-center  items-center'>
+    <div className='flex justify-between p-2 shadow-md  mt-1.5 bg-white rounded-2xl w-4/5 '>
     <img src="/logo.svg" alt="logo" width={150} height={150} />
 
       {!isSignedIn?(<Link to={'/auth/sign-in'}>
