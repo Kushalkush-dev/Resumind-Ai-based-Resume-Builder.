@@ -1,10 +1,13 @@
 import React from "react";
 
-import { FileText, Download, Share2, Sparkles, Zap, Star, Github, GithubIcon, GitBranchPlus } from "lucide-react";
+import { FileText, Download, Share2, Sparkles, Zap, Star, Github, GithubIcon, GitBranchPlus, ArrowRightCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Navigate, useNavigate } from "react-router-dom";
+import path from "path";
 
 export default function LandingPage() {
+  const navigate=useNavigate()
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       {/* Hero Section */}
@@ -18,10 +21,10 @@ export default function LandingPage() {
           Create professional resumes effortlessly with AI-powered suggestions, full customization, and easy sharing options.
         </p>
         <div className="flex justify-center gap-4">
-          <Button size="lg" className="bg-teal-600 hover:bg-teal-700 text-white hover:scale-102">
-            Get Started
+          <Button size="lg" onClick={()=>navigate('/dashboard')} className="bg-teal-600 hover:bg-teal-700 text-white hover:scale-104 transition-all duration-100"  >
+            Get Started <ArrowRightCircle/>
           </Button>
-          <Button size="lg" variant="outline" className={"bg-black text-white transition-all hover:bg-white hover:text-black duration-300 hover:scale-102"}>
+          <Button size="lg" variant="outline" className={"bg-black text-white transition-all hover:bg-white hover:text-black duration-100 hover:scale-102"}>
           <Github/> Support with a Star <Star className="fill-amber-400 text-orange-400"/>
           </Button>
         </div>
