@@ -3,11 +3,12 @@ import React, { useEffect, useState } from "react";
 import { FileText, Download, Share2, Sparkles, Zap, Star, Github, GithubIcon, GitBranchPlus, ArrowRightCircle, Monitor, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate, useNavigate , Link } from "react-router-dom";
 import path from "path";
 
 export default function LandingPage() {
 
+  
 
   const [isMobile,setisMobile]=useState()
 
@@ -74,9 +75,14 @@ export default function LandingPage() {
           <Button size="lg" onClick={()=>navigate('/dashboard')} className="bg-teal-600 hover:bg-teal-700 text-white hover:scale-104 transition-all duration-100"  >
             Get Started <ArrowRightCircle/>
           </Button>
-          <Button size="lg" variant="outline" className={"bg-black text-white transition-all hover:bg-white hover:text-black duration-100 hover:scale-102"}>
+         <Link to="https://github.com/Kushalkush-dev/Resumind-Ai-based-Resume-Builder..git" target="_blank" >
+         <Button size="lg" variant="outline"  className={"bg-black text-white transition-all hover:bg-white hover:text-black duration-100 hover:scale-102"}>
           <Github/> Support with a Star <Star className="fill-amber-400 text-orange-400"/>
           </Button>
+         
+         </Link>
+         
+         
         </div>
       </section>
 
