@@ -47,7 +47,9 @@
 <details>
 	<summary>Backend</summary>
 	<ul>
-		<li>🚀 Strapi (API & DB)</li>
+		<li>🚀 Strapi (API & Server)</li>
+    <li>🚀 Neon Postgress (Database)</li>
+
 	</ul>
 </details>
 
