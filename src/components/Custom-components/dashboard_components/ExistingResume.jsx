@@ -70,7 +70,7 @@ const ExistingResumes = ({resumedetail,ResumeNum,refreshResumes,setloadingResume
      <div className="group relative">
       <div
         className="flex items-center relative justify-center animate-rotate-border 
-                  rounded-lg  h-[250px] md:h-[282px] cursor-pointer hover:shadow-lg p-0.5 hover:scale-105 hover:-translate-y-2 hover:[animation-play-state:paused] duration-500 transition-all" style={{
+                  rounded-lg  h-[200px] md:h-[282px] cursor-pointer hover:shadow-lg p-0.5 hover:scale-105 hover:-translate-y-2 hover:[animation-play-state:paused] duration-500 transition-all" style={{
                     background:`conic-gradient(from var(--border-angle), transparent 70%, ${resumedetail.themeColor} 100%)`      
                   }}>                                                                                                           
         <div className='w-full h-full bg-secondary border-2 rounded-lg'>
