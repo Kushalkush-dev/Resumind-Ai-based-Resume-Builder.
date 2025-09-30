@@ -26,7 +26,7 @@ const Dashboard = () => {
         try {
           if(!user) return console.log("No User");
         const resumes= await globalApi.getResumes(user?.primaryEmailAddress?.emailAddress)
-        console.log(resumes.data);
+      //  console.log(resumes.data);
         setuserResumes(resumes.data)
 
       
