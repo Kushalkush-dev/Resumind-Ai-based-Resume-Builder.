@@ -8,8 +8,8 @@ const Header = () => {
 
   return (
     <>
-    <div className='flex w-full justify-center  items-center'>
-    <div className='flex justify-between p-2 shadow-md  mt-1.5 bg-white rounded-2xl w-4/5 '>
+    <div className='flex w-full justify-center items-center fixed z-50 '>
+    <div className='flex justify-between items-center p-2 shadow-md  mt-1.5 bg-white rounded-2xl w-[90%] md:w-4/5 '>
     <Link to='/'>
     <img src="/logo.svg" alt="logo" width={150} height={150}  />
     </Link>
