@@ -9,7 +9,7 @@ export default function LandingPage() {
 
   
 
-  const [isMobile,setisMobile]=useState()
+  const [isMobile,setisMobile]=useState(false)
 
   useEffect(()=>{
     const handleScreen=()=>{
