@@ -41,7 +41,7 @@ const Summary = ({nextBtnState}) => {
       setsavebtn(true)
       toast.success("Saved Successfully" ,{className:"!bg-green-500 !text-white"})
      }
-     console.log(res);
+    // console.log(res);
      
       
     } catch (error) {

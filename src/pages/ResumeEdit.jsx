@@ -39,7 +39,7 @@ const ResumeEdit = () => {
       experience: data.experience?.length > 0 ? data.experience : resumeInfo.experience,
       education: data.education?.length > 0 ? data.education : resumeInfo.education,})
       
-      console.log(res.data)
+      //console.log(res.data)
 
       
     } catch (error) {

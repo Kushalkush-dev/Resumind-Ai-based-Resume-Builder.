@@ -103,7 +103,7 @@ useEffect(()=>{
       if(res){
       setloading(false)
       toast.success("Saved Successfully" ,{className:"!bg-green-500 !text-white"})
-      console.log(res)
+    //  console.log(res)
       setsaveBtn(true)
       }
       

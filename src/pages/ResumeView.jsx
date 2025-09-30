@@ -25,7 +25,7 @@ useEffect(() => {
     setresumeLoad(true)
     const res = await globalApi.fetchResumeDetails(resumeId);
     const data = res.data;
-    console.log(data);
+   // console.log(data);
     setresumeInfo({...resumeInfo,...data});
     setresumeLoad(false)
   };

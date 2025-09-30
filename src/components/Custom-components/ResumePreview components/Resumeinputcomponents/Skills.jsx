@@ -83,7 +83,7 @@ const onSave=async ()=>{
 
     if(res){
       toast.success("Skills Saved Successfully",{className:"!bg-green-400 !text-white"})
-      console.log(res);
+     // console.log(res);
       setsaveBtn(true)
       nextBtnState(false)
     }

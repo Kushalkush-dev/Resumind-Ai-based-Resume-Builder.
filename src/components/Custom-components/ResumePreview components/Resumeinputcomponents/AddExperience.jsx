@@ -51,7 +51,7 @@ useEffect(()=>{
     setsaveBtn(false)
     
 
-    console.log(experiencelist);
+   // console.log(experiencelist);
     
     
     const {name,value}=event.target
@@ -105,7 +105,7 @@ useEffect(()=>{
       setloading(false)
       toast.success("Saved Successfully" ,{className:"!bg-green-500 !text-white"})
       nextBtnState(false)
-      console.log(res)
+    //  console.log(res)
       setsaveBtn(true)
       }
       
