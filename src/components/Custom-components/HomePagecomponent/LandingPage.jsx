@@ -4,7 +4,6 @@ import { FileText, Download, Share2, Sparkles, Zap, Star, Github, GithubIcon, Gi
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Navigate, useNavigate , Link } from "react-router-dom";
-import path from "path";
 
 export default function LandingPage() {
 
