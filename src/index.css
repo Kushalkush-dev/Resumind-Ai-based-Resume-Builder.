@@ -222,3 +222,14 @@
   display: block;
   animation: spin-slow 5s linear infinite;
 }
+
+
+
+body::-webkit-scrollbar{
+  display: none;
+}
+
+
+body{
+  overflow-x:hidden;
+}

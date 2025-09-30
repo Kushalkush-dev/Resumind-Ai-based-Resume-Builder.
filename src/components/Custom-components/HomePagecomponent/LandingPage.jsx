@@ -12,16 +12,7 @@ export default function LandingPage() {
   const [isMobile,setisMobile]=useState(false)
 
   useEffect(()=>{
-    const handleScreen=()=>{
-      setisMobile(window.innerWidth<=768)
-    }
-
-    handleScreen()
-
-    window.addEventListener("resize",handleScreen)
-    return ()=>window.removeEventListener("resize",handleScreen)
-
-
+    setisMobile(window.innerWidth<=768)
 
   },[])
 
