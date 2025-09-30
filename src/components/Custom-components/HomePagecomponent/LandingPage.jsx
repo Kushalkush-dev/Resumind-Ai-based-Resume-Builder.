@@ -62,11 +62,11 @@ export default function LandingPage() {
           Create professional resumes effortlessly with AI-powered suggestions, full customization, and easy sharing options.
         </p>
         <div className="flex justify-center gap-4">
-          <Button size="lg" onClick={()=>navigate('/dashboard')} className="bg-teal-600 hover:bg-teal-700 text-white hover:scale-104 transition-all duration-100"  >
+          <Button size="lg" onClick={()=>navigate('/dashboard')} className="bg-teal-600 hover:bg-teal-700 cursor-pointer text-white hover:scale-104 transition-all duration-100"  >
             Get Started <ArrowRightCircle/>
           </Button>
          <Link to="https://github.com/Kushalkush-dev/Resumind-Ai-based-Resume-Builder..git" target="_blank" >
-         <Button size="lg" variant="outline"  className={"bg-black text-white transition-all hover:bg-white hover:text-black duration-100 hover:scale-102"}>
+         <Button size="lg" variant="outline"  className={"bg-black text-white transition-all cursor-pointer hover:bg-white hover:text-black duration-100 hover:scale-102"}>
           <Github/> Support with a Star <Star className="fill-amber-400 text-orange-400"/>
           </Button>
          
@@ -163,7 +163,7 @@ export default function LandingPage() {
         <p className="mb-8 max-w-xl mx-auto text-teal-100">
           Save time and land your dream job faster with Resumind’s AI-powered resume builder.
         </p>
-        <Button size="lg" className="bg-white text-teal-700 hover:bg-gray-100">
+        <Button onClick={()=>navigate('/dashboard')} size="lg" className="bg-white text-teal-700 hover:bg-gray-100">
           Get Started for Free
         </Button>
       </section>

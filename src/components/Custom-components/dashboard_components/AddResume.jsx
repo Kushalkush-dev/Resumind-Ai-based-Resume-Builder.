@@ -53,9 +53,9 @@ const AddResume = () => {
   return (
     <div >
     <div onClick={()=>setopenDialog(true)} className='px-14 py-30  flex items-center justify-center bg-secondary border-dashed border-2 border-primary
-                  rounded-lg h-[282px] cursor-pointer hover:scale-105 hover:shadow-lg duration-500 transition-all'>
+                  rounded-lg  h-[200px] md:h-[282px] cursor-pointer hover:scale-105 hover:shadow-lg duration-500 transition-all'>
 
-    <PlusCircle/>
+    <PlusCircle className='md:w-6 w-7 h-7'/>
 
   </div>
 
