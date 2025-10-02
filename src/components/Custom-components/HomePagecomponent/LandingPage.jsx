@@ -36,7 +36,7 @@ export default function LandingPage() {
               </Button>
             </div>
             <p className="text-gray-600 mb-4 text-sm">
-              For the best resume building experience, please use ResumInd on a desktop or PC.
+              For the best resume building experience, please use Resumind on a desktop or PC.
             </p>
             <Button
               onClick={() => setisMobile(false)}
