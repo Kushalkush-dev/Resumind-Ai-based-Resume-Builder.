@@ -71,9 +71,9 @@ const ExistingResumes = ({resumedetail,ResumeNum,refreshResumes,setloadingResume
       <div
         className="flex items-center relative justify-center animate-rotate-border 
                   rounded-lg  h-[200px] md:h-[282px] cursor-pointer hover:shadow-lg p-0.5 hover:scale-105 hover:-translate-y-2 hover:[animation-play-state:paused] duration-500 transition-all" style={{
-                    background:`conic-gradient(from var(--border-angle), transparent 70%, ${resumedetail.themeColor} 100%)`      
+                    background:`conic-gradient(from var(--border-angle), transparent 50%, ${resumedetail.themeColor} 100%)`      
                   }}>                                                                                                           
-        <div className='w-full h-full bg-secondary border-2 rounded-lg'>
+        <div className='w-full  h-full bg-secondary border-2 rounded-lg'>
 
           <div className='flex justify-center items-center flex-col h-full'>
               <div className="mb-4 p-3 rounded-full bg-primary/10 text-primary group-hover:bg-primary/15 transition-colors">
