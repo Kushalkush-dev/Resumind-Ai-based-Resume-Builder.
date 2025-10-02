@@ -142,10 +142,10 @@ const ExistingResumes = ({resumedetail,ResumeNum,refreshResumes,setloadingResume
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel onClick={() => setopendeleteDialog(false)}>Cancel</AlertDialogCancel>
+            <AlertDialogCancel onClick={() => setopendeleteDialog(false)} className={"bg-green-400 text-white hover:text-teal-50 hover:bg-green-500"}>Cancel</AlertDialogCancel>
             <AlertDialogAction
               onClick={deleteResume}
-              className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+              className="bg-destructive text-white hover:bg-destructive/70"
             >
               {continueLoading ? (
                 <>
