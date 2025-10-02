@@ -110,7 +110,7 @@ const onSave=async ()=>{
         <div>
           {skillList?.map((item,index)=>(
             <div key={index}>
-              <div className='border p-5 my-5'>
+              <div className='border rounded-lg border-primary p-5 my-5'>
                 <div className='flex justify-between items-center '>
                 
                <div>

@@ -140,8 +140,8 @@ useEffect(()=>{
         <div>
           {experiencelist.map((exp,index)=>(
             <div key={index}>
-              <div className='border p-5 my-5'>
-                <div className='grid grid-cols-2 gap-10 border p-5 my-5'>
+              <div className='border border-primary p-2 md:p-5  my-5 md:my-5'>
+                <div className='grid grid-cols-1 md:grid-cols-2 gap-10 border p-5 my-5'>
                 <div>
                   <label className="font-medium ">Position Title</label>
                   <Input value={experiencelist[index].title} name="title" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
@@ -172,7 +172,7 @@ useEffect(()=>{
                   <Input   value={experiencelist[index].endDate}type="month" name="endDate" placeholder="Ex:Senior Developer" onChange={(event)=>handleChange(index,event)}/>
                 </div>
 
-                  <div className='col-span-2'>
+                  <div className='md:col-span-2'>
                   <label className="font-medium ">WorkSummary</label>
                   <RichTextEditor val={experiencelist[index].workSummary} handleRichTextEditor={(e)=>handleRichTextEditor(e,'workSummary',index)}/>
                   </div>
