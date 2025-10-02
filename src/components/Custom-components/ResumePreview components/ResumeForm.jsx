@@ -23,9 +23,9 @@ const ResumeForm = ({resumefetchDB}) => {
     <div>
 
       <div className='flex justify-between'>
-        <div className='flex gap-5'>
+        <div className='flex md:gap-5 '>
         <Link to="/dashboard">
-          <Button><Home/>Home</Button>
+          <Button className={"hidden md:flex"}><Home/>Home</Button>
         </Link>
       <Themecolor/>
 

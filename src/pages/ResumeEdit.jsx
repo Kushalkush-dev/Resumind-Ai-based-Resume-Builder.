@@ -55,7 +55,7 @@ const ResumeEdit = () => {
     
     <>
     <ResumeInfoContext.Provider value={{resumeInfo,setresumeInfo}}>
-     <div className='grid grid-cols-1 md:grid-cols-2 gap-7 p-9'>
+     <div className='grid grid-cols-1 md:grid-cols-2 gap-20 md:gap-6 p-3 md:p-10 pt-18 md:pt-22'>
 
     <ResumeForm resumefetchDB={fetchresumedataDB}/>
 
