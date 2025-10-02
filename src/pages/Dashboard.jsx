@@ -40,7 +40,7 @@ const Dashboard = () => {
   return (
     <>
 
-    <div className=' px-5 pt-17 md:px-20 lg:px-32'>
+    <div className=' px-6 pt-17 md:px-20 lg:px-32'>
       <h2 className='font-bold text-3xl'>My Resume</h2>
       <p className='font-semibold'>Build your resume without hassle</p>
       <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-10 gap-4'>

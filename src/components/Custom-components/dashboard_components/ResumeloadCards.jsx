@@ -3,8 +3,8 @@ import React from 'react'
 const ResumeloadCards = () => {
   return (
      <div>
-      <div className='px-14 py-30  flex items-center justify-center bg-secondary
-                  rounded-lg h-[282px]  opacity-85 shadow-lg transition-all animate-pulse'>
+      <div className='px-14   flex items-center justify-center bg-secondary
+                  rounded-lg  h-[200px] md:h-[282px]  opacity-85 shadow-lg transition-all animate-pulse'>
 
         
           <div className="w-24 h-24 bg-gray-300 rounded-full"></div>
