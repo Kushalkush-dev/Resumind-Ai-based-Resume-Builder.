@@ -134,7 +134,7 @@ useEffect(()=>{
      <div className='shadow-lg  border-t-5 border-t-primary mt-5 p-5'>
       <div className='flex justify-between items-center m-2.5'>
         <h2 className='text-xl font-bold'>Add Experience</h2>
-        <Button variant="outline" className={"hover:text-primary"}>Generate Experience</Button>
+      <Button variant="outline" className={"hover:text-primary hidden"}>Generate Experience</Button>
       </div> 
 
         <div>

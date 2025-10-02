@@ -89,7 +89,9 @@ const GenerateAiSummary=async()=>{
     <div className='shadow-lg  border-t-5 h-auto border-t-primary mt-5 p-5'>
       <div className='flex justify-between items-center m-2.5'>
         <h2 className='text-xl font-bold'>Add Summary</h2>
-        <Button onClick={()=>GenerateAiSummary()} variant="outline" className="border-1 hover:text-primary hover:scale-102 active:scale-100" style={{borderColor:resumeInfo?.themeColor}}>Generate Summary </Button>
+        <button onClick={()=>GenerateAiSummary()} variant="default" className="relative active:scale-95 inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800">
+          <span className='relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-transparent group-hover:dark:bg-transparent'>
+            Generate Summary</span>  </button>
       </div> 
       <div>
         <Textarea value={resumeInfo.summary} onChange={(e)=>{setsummarytext(e.target.value) 
