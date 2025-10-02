@@ -9,7 +9,7 @@
 		<a href="https://react.dev" target="_blank"><img src="https://img.shields.io/badge/React-19-blue?logo=react" /></a>
 		<a href="https://vitejs.dev" target="_blank"><img src="https://img.shields.io/badge/Vite-4.0-purple?logo=vite" /></a>
 		<a href="https://tailwindcss.com" target="_blank"><img src="https://img.shields.io/badge/TailwindCSS-4.0-06b6d4?logo=tailwindcss" /></a>
-		<a href="https://strapi.io" target="_blank><img src="https://img.shields.io/badge/Strapi-Backend-8e44ad?logo=strapi" /></a>
+		<a href="https://strapi.io" target="_blank"><img src="https://img.shields.io/badge/Strapi-Backend-8e44ad?logo=strapi" /></a>
 		<img src="https://img.shields.io/badge/License-MIT-green" />
 	</p>
 </div>

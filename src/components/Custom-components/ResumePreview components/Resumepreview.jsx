@@ -8,7 +8,7 @@ const Resumepreview = () => {
     <div>
       {/* personal info */}
 
-      <div className='shadow-lg p-10 border-t-[20px] h-auto '
+      <div className='shadow-lg print:shadow-none p-10 border-t-[20px] h-auto '
       style={{borderColor:resumeInfo.themeColor}}>
         <h2 className='text-center font-medium text-2xl'>{resumeInfo.firstName} {resumeInfo.lastName}</h2>
         <h2 className='text-center font-medium text-xs'>{resumeInfo.jobTitle}</h2>
@@ -74,7 +74,7 @@ const Resumepreview = () => {
 
       <div className='grid grid-cols-2 gap-4 my-4'>
          {resumeInfo?.skills?.map((skill,index)=>(
-      <div key={index} className='flex items-center justify-between'>
+      <div key={index} className='flex items-center justify-between gap-2'>
 
         <h2 className='text-sm font-medium'>{skill?.name}</h2>
         <div className='h-2 bg-gray-300 w-[100px] rounded-2xl'>
