@@ -60,13 +60,13 @@ const Personaldetails = ({ nextBtnState }) => {
 
 
   return (
-    <div className='shadow-lg h-full border-t-5 border-t-primary mt-5 p-5'>
+    <div className='shadow-lg h-auto border-t-5 border-t-primary mt-5 p-5'>
       <h2 className='text-xl font-bold'>Personal Details</h2>
       <h3 className='text-md'>Get Started by filling basic details</h3>
 
       <div>
         <form onSubmit={onSave} className='mt-5'>
-          <div className='grid grid-cols-2 gap-6'>
+          <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
 
             <div>
               <label htmlFor="firstName" className='text-sm'>First Name</label>
@@ -78,12 +78,12 @@ const Personaldetails = ({ nextBtnState }) => {
               <Input name="lastName" value={resumeInfo.lastName} required type={"text"} onChange={handleChange} />
             </div>
 
-            <div className='col-span-2'>
+            <div className='md:col-span-2'>
               <label htmlFor="jobTitle" className='text-sm'>Job Title</label>
               <Input name="jobTitle" value={resumeInfo.jobTitle} required type={"text"} onChange={handleChange} />
             </div>
 
-            <div className='col-span-2'>
+            <div className='md:col-span-2'>
               <label htmlFor="address" className='text-sm'>Address</label>
               <Input name="address" value={resumeInfo.address} required type={"address"} onChange={handleChange} />
             </div>
