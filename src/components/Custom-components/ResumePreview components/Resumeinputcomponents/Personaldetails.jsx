@@ -20,7 +20,7 @@ const Personaldetails = ({ nextBtnState }) => {
    const [saveBtn, setsaveBtn] = useState(true)
 
   const param= useParams()
-  console.log(param.resumeId);
+  //console.log(param.resumeId);
   
   const handleChange = (e) => {
     setsaveBtn(false)

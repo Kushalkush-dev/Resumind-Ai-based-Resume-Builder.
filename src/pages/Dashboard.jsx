@@ -25,16 +25,23 @@ const Dashboard = () => {
       setloadingResumes(true)
         try {
           if(!user) return console.log("No User");
-        const resumes= await globalApi.getResumes(user?.primaryEmailAddress?.emailAddress)
-        console.log(resumes.data);
-        setuserResumes(resumes.data)
+          const resumes= await globalApi.getResumes(user?.primaryEmailAddress?.emailAddress)
+      //  console.log(resumes.data);
+       
+         setuserResumes(resumes.data) 
 
       
 
       } catch (error) {
         console.log("Error fetching Resumes");
       }finally{
-        setloadingResumes(false)
+
+        setTimeout(() => {
+          setloadingResumes(false)
+          
+        }, 300);
+
+
       }
       } 
   return (

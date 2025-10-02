@@ -35,13 +35,13 @@ const AddResume = () => {
    }
    try {
    const res= await globalApi.createNewResume(data)
-   console.log(res);
+   //console.log(res);
    setisloading(false)
    setopenDialog(false)
    navigate(`/dashboard/resume/${res.data.documentId}/edit`)
   
    } catch (error) {
-    console.log(error);
+   // console.log(error);
     setisloading(false)
     
    }
