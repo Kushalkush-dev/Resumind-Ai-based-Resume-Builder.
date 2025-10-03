@@ -9,6 +9,10 @@ import { useParams } from 'react-router-dom'
 import globalApi from './../../service/globalApi'
 import ResumePreviewSkeleton from '@/components/ResumeLoadcomponent/ResumePreviewSkeleton'
 
+import { PDFDownloadLink } from "@react-pdf/renderer";
+import DefaultResume from '@/PdfPreviews/DefaultResume'
+
+
 
 const ResumeView = () => {
 
@@ -66,9 +70,23 @@ const Share=async()=>{
       <div className="print:hidden w-full flex flex-col items-center mb-6">
         <Header />
         <div className="flex justify-around md:justify-between pt-15 w-full max-w-3xl mt-4">
-          <Button disabled={resumeLoad} onClick={downloadResume} className="mr-2 flex items-center gap-2">
-            <Download size={18} /> Download
-          </Button>
+         <PDFDownloadLink
+        document={<DefaultResume resumeInfo={resumeInfo} />}
+        fileName="resume.pdf"
+      >
+        {({ loading }) =>
+          loading ? (
+            <button className="px-4 py-2 bg-gray-400 text-white rounded-lg">
+              Preparing PDF...
+            </button>
+          ) : (
+            <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+              Download Resume
+            </button>
+          )
+        }
+      </PDFDownloadLink>
+
           <Button disabled={resumeLoad} onClick={Share} className="flex items-center gap-2">
             <Share2Icon size={18} /> Share
           </Button>
