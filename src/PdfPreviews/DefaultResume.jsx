@@ -34,32 +34,33 @@ const DefaultResume = ({ resumeInfo }) => {
     },
     sectionTitle: {
       fontSize: 12,
-      fontWeight: 'bold',
+      fontWeight: 600,
       textAlign: 'center',
       marginTop: 6,
       marginBottom: 4,
-      borderBottomWidth: 2
+      borderBottomWidth: 2,
+      paddingBottom:2
     },
     summary: {
       fontSize: 9,
       textAlign: 'justify',
       marginBottom: 8,
-      marginTop: 6,
+      marginTop: 1,
       paddingTop: 6,
 
       borderTopWidth: 2
 
     },
-    expItem: { marginBottom: 6 },
+    expItem: { marginBottom: 6 ,paddingBottom:2 },
     expHeader: { flexDirection: 'row', justifyContent: 'space-between' },
-    expRole: { fontSize: 10, fontWeight: 'bold' },
-    expCompany: { fontSize: 8 },
-    expDates: { fontSize: 8 },
-    expDesc: { fontSize: 9, textAlign: 'justify', marginTop: 3 },
+    expRole: { fontSize: 10, fontWeight: 'bold', paddingBottom:3 },
+    expCompany: { fontSize: 8 ,paddingBottom:2},
+    expDates: { fontSize: 8 ,paddingBottom:2},
+    expDesc: { fontSize: 9, textAlign: 'justify', marginTop: 3 ,paddingBottom:3},
     eduItem: { marginBottom: 6 },
-    eduSchool: { fontSize: 10, fontWeight: 'bold' },
-    eduDegree: { fontSize: 8 },
-    eduDates: { fontSize: 8 },
+    eduSchool: { fontSize: 10, fontWeight: 'bold' ,paddingBottom:3},
+    eduDegree: { fontSize: 8 ,paddingBottom:3 },
+    eduDates: { fontSize: 8 ,paddingBottom:3 },
     skillsWrap: {
       flexDirection: 'row',
       flexWrap: 'wrap',
