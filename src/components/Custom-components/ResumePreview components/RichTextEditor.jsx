@@ -17,9 +17,7 @@ const RichTextEditor = ({handleRichTextEditor,val}) => {
                                       handleRichTextEditor(e)}
     }>
       <Toolbar>
-          <BtnBold />
-          <BtnItalic />
-
+          
           <BtnBulletList />
           
       </Toolbar>
