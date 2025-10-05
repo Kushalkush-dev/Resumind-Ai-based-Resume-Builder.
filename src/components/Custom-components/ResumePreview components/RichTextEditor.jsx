@@ -19,10 +19,7 @@ const RichTextEditor = ({handleRichTextEditor,val}) => {
       <Toolbar>
           <BtnBold />
           <BtnItalic />
-          <Separator/>
-          <BtnUnderline />
-          <BtnStrikeThrough />
-          <BtnNumberedList />
+
           <BtnBulletList />
           
       </Toolbar>
